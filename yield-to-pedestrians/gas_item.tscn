@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6r0wm2bqlskb"]
+
+[ext_resource type="Texture2D" uid="uid://c11egn6vie63x" path="res://icon.svg" id="1_3l87g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvxi"]
+size = Vector2(12, 12)
+
+[node name="GasItem" type="Node2D" unique_id=2061628890]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=807846288]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3l87g")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1277176728]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=102485227]
+shape = SubResource("RectangleShape2D_kkvxi")
+disabled = true

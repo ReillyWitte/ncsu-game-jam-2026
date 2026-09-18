@@ -16,6 +16,10 @@ var cell_walls = {
 @export var grid_width: int = 33
 @export var grid_height: int = 18
 
+@export var maxGas: int = 5
+@export var numGas: int = 5
+#@onready var gasSprite: Sprite2D = 'res://icon.svg'
+
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
 @export_range(0.0, 1.0) var extra_connection_chance: float = 0.10 
 
@@ -126,3 +130,10 @@ func draw_maze() -> void:
 		if tile_coords.has(tile_id):
 			var atlas_coords = tile_coords[tile_id]
 			map.set_cell(0, cell, source_id, atlas_coords)
+
+func spawn_items(item: String) -> void:
+	if (item == "Gas"):
+		pass
+
+func _process(delta: float) -> void:
+	pass
