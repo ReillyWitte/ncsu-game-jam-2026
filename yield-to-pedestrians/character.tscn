@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0jqtcc8m8wde"]
 
 [ext_resource type="Script" uid="uid://bg1s604sq88gi" path="res://character_body_2d.gd" id="1_pjt0s"]
-[ext_resource type="Texture2D" uid="uid://bbpdmg2mpfhjw" path="res://deer_glasses.png" id="2_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://bbpdmg2mpfhjw" path="res://Assets/deer_glasses.png" id="2_pjt0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
 size = Vector2(439.99997, 849.9999)
@@ -22,8 +22,8 @@ shape = SubResource("RectangleShape2D_wfnr8")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
 rotation = 1.5707964
 ignore_rotation = false
-zoom = Vector2(4, 4)
+zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 3.5
+rotation_smoothing_speed = 3.25

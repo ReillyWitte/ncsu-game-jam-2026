@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cq636nxoj7fbv"]
 
 [ext_resource type="Script" uid="uid://bubwm75lkmjqh" path="res://maze_generator.gd" id="1_t3ow0"]
-[ext_resource type="Texture2D" uid="uid://ci3cfon2ip54f" path="res://Road Tileset.png" id="2_t3ow0"]
+[ext_resource type="Texture2D" uid="uid://ci3cfon2ip54f" path="res://Assets/Road Tileset.png" id="2_t3ow0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3ow0"]
 texture = ExtResource("2_t3ow0")

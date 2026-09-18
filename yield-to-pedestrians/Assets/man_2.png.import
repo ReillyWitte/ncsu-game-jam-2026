@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kd5ha706s8bx"
-path="res://.godot/imported/gascan.png-62042195a996f3e3371c6cbc820a0a73.ctex"
+uid="uid://7vfwjaolu4ef"
+path="res://.godot/imported/man_2.png-e289d2b6ad207196d6100d038c92781c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gascan.png"
-dest_files=["res://.godot/imported/gascan.png-62042195a996f3e3371c6cbc820a0a73.ctex"]
+source_file="res://Assets/man_2.png"
+dest_files=["res://.godot/imported/man_2.png-e289d2b6ad207196d6100d038c92781c.ctex"]
 
 [params]
 

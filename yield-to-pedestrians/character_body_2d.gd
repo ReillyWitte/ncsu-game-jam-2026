@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var fuel_loss_time = 350
 @export var max_speed = 275
-@export var min_speed = 100
+@export var min_speed = 130
 var old_passed_time = Time.get_ticks_msec()
 
 @export var speed = max_speed
@@ -33,7 +34,7 @@ func _physics_process(delta):
 			if speed < max_speed:
 				speed = speed + 5
 	var passed_time = Time.get_ticks_msec()
-	if passed_time >= old_passed_time + 350:
+	if passed_time >= old_passed_time + fuel_loss_time:
 		Global.currentGasLevel = Global.currentGasLevel - 1
 		print(Global.currentGasLevel)
 		old_passed_time = passed_time

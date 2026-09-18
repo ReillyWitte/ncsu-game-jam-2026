@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6r0wm2bqlskb"]
 
 [ext_resource type="Script" uid="uid://x22wigicuw2p" path="res://gas_item.gd" id="1_kkvxi"]
-[ext_resource type="Texture2D" uid="uid://kd5ha706s8bx" path="res://gascan.png" id="2_kkvxi"]
+[ext_resource type="Texture2D" uid="uid://kd5ha706s8bx" path="res://Assets/gascan.png" id="2_kkvxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvxi"]
 size = Vector2(38, 38)

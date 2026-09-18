@@ -21,9 +21,10 @@ var road_list: Array[Vector2i] = []
 var occupied_cells: Dictionary = {}
 
 const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
+const NPC_SCENE = preload("res://npc.tscn")
 
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
-@export_range(0.0, 1.0) var extra_connection_chance: float = 0.10 
+@export_range(0.0, 1.0) var extra_connection_chance: float = 0.30 
 
 @onready var map: TileMap = $TileMap
 
@@ -56,7 +57,9 @@ func _ready() -> void:
 	randomize()
 	generate_maze()
 	for i in Global.maxGas:
-		spawn_random_gas_item()
+		spawn_random_gas_item(GAS_ITEM_SCENE)
+	for j in Global.maxNPC:
+		spawn_random_npc(NPC_SCENE)
 
 func generate_maze() -> void:
 	map.clear()
@@ -145,7 +148,7 @@ func draw_maze() -> void:
 			if tile_id != 0:
 				road_list.append(cell)
 
-func spawn_random_gas_item() -> void:
+func spawn_random_gas_item(SCENE) -> void:
 	var free_cells: Array[Vector2i] = []
 	for cell in road_list:
 		if not occupied_cells.has(cell):
@@ -157,14 +160,30 @@ func spawn_random_gas_item() -> void:
 		
 	var coordinates: Vector2i = free_cells.pick_random()
 	occupied_cells[coordinates] = true
-	var new_gas: Node2D = GAS_ITEM_SCENE.instantiate()
+	var new_gas: Node2D = SCENE.instantiate()
 	# Convert the tile coordinate to the pixel position of that tile's center
 	new_gas.position = map.map_to_local(coordinates)
 	add_child(new_gas)
+
+func spawn_random_npc(SCENE) -> void:
+	var new_npc: CharacterBody2D = SCENE.instantiate()
 	
+	# Pick any tile inside the grid (indices run 0 to size - 1)
+	var cell: Vector2i = Vector2i(
+		randi_range(0, grid_width - 1),
+		randi_range(0, grid_height - 1)
+	)
+	
+	# Convert the tile coordinate to the pixel position of that tile's center
+	new_npc.position = map.map_to_local(cell)
+	add_child(new_npc)
+	
+
 func _process(delta: float) -> void:
 	if (Global.numGas < Global.maxGas):
-		spawn_random_gas_item()
+		spawn_random_gas_item(GAS_ITEM_SCENE)
+	if (Global.numNPC < Global.maxNPC):
+		spawn_random_npc(NPC_SCENE)
 		
 func is_grass_at(world_pos: Vector2) -> bool:
 	var cell: Vector2i = map.local_to_map(map.to_local(world_pos))

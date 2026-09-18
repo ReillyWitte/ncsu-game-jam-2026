@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbpdmg2mpfhjw"
-path="res://.godot/imported/deer_glasses.png-82f31238fd5ecee3fa6d8bf00dac615e.ctex"
+path="res://.godot/imported/deer_glasses.png-3ad08b54b6fc60e197f7cb34c2b0aed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://deer_glasses.png"
-dest_files=["res://.godot/imported/deer_glasses.png-82f31238fd5ecee3fa6d8bf00dac615e.ctex"]
+source_file="res://Assets/deer_glasses.png"
+dest_files=["res://.godot/imported/deer_glasses.png-3ad08b54b6fc60e197f7cb34c2b0aed6.ctex"]
 
 [params]
 
