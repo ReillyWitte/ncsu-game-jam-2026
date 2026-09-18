@@ -49,6 +49,9 @@ var tile_coords = {
 	15: Vector2i(6, 6)    # 4-way intersection
 }
 
+func _enter_tree() -> void:
+	add_to_group("maze")
+
 func _ready() -> void:
 	randomize()
 	generate_maze()
@@ -152,7 +155,7 @@ func spawn_random_gas_item() -> void:
 	if free_cells.is_empty():
 		return
 		
-	var coordinates: Vector2i = road_list.pick_random()
+	var coordinates: Vector2i = free_cells.pick_random()
 	occupied_cells[coordinates] = true
 	var new_gas: Node2D = GAS_ITEM_SCENE.instantiate()
 	# Convert the tile coordinate to the pixel position of that tile's center
@@ -162,3 +165,11 @@ func spawn_random_gas_item() -> void:
 func _process(delta: float) -> void:
 	if (Global.numGas < Global.maxGas):
 		spawn_random_gas_item()
+		
+func is_grass_at(world_pos: Vector2) -> bool:
+	var cell: Vector2i = map.local_to_map(map.to_local(world_pos))
+	
+	if not is_in_bounds(cell):
+		return true;
+	
+	return grid[cell] == 0
