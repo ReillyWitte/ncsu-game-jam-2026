@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://b6r0wm2bqlskb"]
 
-[ext_resource type="Texture2D" uid="uid://c11egn6vie63x" path="res://icon.svg" id="1_3l87g"]
+[ext_resource type="Script" uid="uid://x22wigicuw2p" path="res://gas_item.gd" id="1_kkvxi"]
+[ext_resource type="Texture2D" uid="uid://kd5ha706s8bx" path="res://gascan.png" id="2_kkvxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvxi"]
-size = Vector2(64, 64)
+size = Vector2(38, 38)
 
 [node name="GasItem" type="Node2D" unique_id=2061628890]
+script = ExtResource("1_kkvxi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=807846288]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_3l87g")
+texture = ExtResource("2_kkvxi")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277176728]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=102485227]
 shape = SubResource("RectangleShape2D_kkvxi")
-disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

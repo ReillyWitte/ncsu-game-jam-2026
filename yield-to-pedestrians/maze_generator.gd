@@ -20,8 +20,6 @@ var cell_walls = {
 var road_list: Array[Vector2i] = []
 var occupied_cells: Dictionary = {}
 
-@export var maxGas: int = 10
-@export var numGas: int = 10
 const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
 
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
@@ -54,7 +52,7 @@ var tile_coords = {
 func _ready() -> void:
 	randomize()
 	generate_maze()
-	for i in maxGas:
+	for i in Global.maxGas:
 		spawn_random_gas_item()
 
 func generate_maze() -> void:
@@ -160,3 +158,7 @@ func spawn_random_gas_item() -> void:
 	# Convert the tile coordinate to the pixel position of that tile's center
 	new_gas.position = map.map_to_local(coordinates)
 	add_child(new_gas)
+	
+func _process(delta: float) -> void:
+	if (Global.numGas < Global.maxGas):
+		spawn_random_gas_item()
