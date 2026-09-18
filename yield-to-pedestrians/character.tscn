@@ -17,10 +17,10 @@ texture = ExtResource("2_wa5vi")
 scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_wfnr8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1054962774]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
 rotation = 1.5707964
 ignore_rotation = false
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 rotation_smoothing_enabled = true

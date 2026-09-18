@@ -16,9 +16,13 @@ var cell_walls = {
 @export var grid_width: int = 33
 @export var grid_height: int = 18
 
-@export var maxGas: int = 5
-@export var numGas: int = 5
-#@onready var gasSprite: Sprite2D = 'res://icon.svg'
+# Road Vars
+var road_list: Array[Vector2i] = []
+var occupied_cells: Dictionary = {}
+
+@export var maxGas: int = 10
+@export var numGas: int = 10
+const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
 
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
 @export_range(0.0, 1.0) var extra_connection_chance: float = 0.10 
@@ -50,6 +54,8 @@ var tile_coords = {
 func _ready() -> void:
 	randomize()
 	generate_maze()
+	for i in maxGas:
+		spawn_random_gas_item()
 
 func generate_maze() -> void:
 	map.clear()
@@ -124,16 +130,33 @@ func is_in_bounds(cell: Vector2i) -> bool:
 func draw_maze() -> void:
 	var source_id = map.tile_set.get_source_id(0)
 	
+	# Reset the list so regenerating the maze doesn't keep stale cells
+	road_list.clear()
+	
 	for cell in grid.keys():
 		var tile_id = grid[cell]
 		
 		if tile_coords.has(tile_id):
 			var atlas_coords = tile_coords[tile_id]
 			map.set_cell(0, cell, source_id, atlas_coords)
+			
+			# Only record cells that are actually roads (0 is grass)
+			if tile_id != 0:
+				road_list.append(cell)
 
-func spawn_items(item: String) -> void:
-	if (item == "Gas"):
-		pass
-
-func _process(delta: float) -> void:
-	pass
+func spawn_random_gas_item() -> void:
+	var free_cells: Array[Vector2i] = []
+	for cell in road_list:
+		if not occupied_cells.has(cell):
+			free_cells.append(cell)
+			
+	# Stop if every road cell already has an item
+	if free_cells.is_empty():
+		return
+		
+	var coordinates: Vector2i = road_list.pick_random()
+	occupied_cells[coordinates] = true
+	var new_gas: Node2D = GAS_ITEM_SCENE.instantiate()
+	# Convert the tile coordinate to the pixel position of that tile's center
+	new_gas.position = map.map_to_local(coordinates)
+	add_child(new_gas)
