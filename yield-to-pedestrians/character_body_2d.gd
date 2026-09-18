@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var fuel_loss_time = 350
-@export var max_speed = 275
-@export var min_speed = 130
+@export var max_speed = 375
+@export var min_speed = 200
 var old_passed_time = Time.get_ticks_msec()
 
 @export var speed = max_speed
-@export var rotation_speed = 4
+@export var rotation_speed = 4.5
 
 var rotation_direction = 0
 

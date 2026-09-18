@@ -3,7 +3,7 @@ extends Node
 var player_score : int = 0
 var maxGas: int = 10
 var numGas: int = 0
-var maxNPC: int = 60
+var maxNPC: int = 240
 var numNPC: int = 0
 
 const fullGasLevel: int = 100

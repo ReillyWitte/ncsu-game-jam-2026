@@ -35,16 +35,16 @@ var tile_coords = {
 	0: Vector2i(0, 0),    # Empty/Solid background block
 	1: Vector2i(6, 11),   # North dead-end
 	2: Vector2i(0, 6),    # East dead-end
-	3: Vector2i(8, 5),    # North + East corner
+	3: Vector2i(1, 8),    # North + East corner
 	4: Vector2i(6, 0),    # South dead-end
 	5: Vector2i(6, 5),    # North + South straight vertical line
-	6: Vector2i(8, 4),    # East + South corner
+	6: Vector2i(1, 7),    # East + South corner
 	7: Vector2i(8, 9),    # North + East + South T-junction
 	8: Vector2i(11, 6),   # West dead-end
-	9: Vector2i(9, 5),    # North + West corner
+	9: Vector2i(2, 8),    # North + West corner
 	10: Vector2i(5, 6),   # East + West straight horizontal line
 	11: Vector2i(11, 9),  # North + East + West T-junction
-	12: Vector2i(9, 4),   # South + West corner
+	12: Vector2i(2, 7),   # South + West corner
 	13: Vector2i(6, 8),   # North + South + West T-junction
 	14: Vector2i(3, 6),   # East + South + West T-junction
 	15: Vector2i(6, 6)    # 4-way intersection
