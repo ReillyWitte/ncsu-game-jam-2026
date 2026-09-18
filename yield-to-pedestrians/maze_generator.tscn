@@ -106,6 +106,9 @@ sources/3 = SubResource("TileSetAtlasSource_r1w0m")
 
 [node name="MazeGenerator" type="Node2D" unique_id=702307101]
 script = ExtResource("1_t3ow0")
+grid_width = null
+grid_height = null
+extra_connection_chance = null
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1093877009]
 tile_set = SubResource("TileSet_63krb")

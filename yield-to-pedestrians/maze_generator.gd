@@ -22,6 +22,7 @@ var occupied_cells: Dictionary = {}
 
 const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
 const NPC_SCENE = preload("res://npc.tscn")
+const NITROUS_ITEM_SCENE = preload("res://nitrous_item.tscn")
 
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
 @export_range(0.0, 1.0) var extra_connection_chance: float = 0.30 
@@ -184,6 +185,8 @@ func _process(delta: float) -> void:
 		spawn_random_gas_item(GAS_ITEM_SCENE)
 	if (Global.numNPC < Global.maxNPC):
 		spawn_random_npc(NPC_SCENE)
+	if (Global.numNitrous < Global.maxNitrous):
+		spawn_random_gas_item(NITROUS_ITEM_SCENE)
 		
 func is_grass_at(world_pos: Vector2) -> bool:
 	var cell: Vector2i = map.local_to_map(map.to_local(world_pos))

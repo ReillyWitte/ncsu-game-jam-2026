@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b5ixhrdphotm0"]
+
+[ext_resource type="Script" uid="uid://de1mko64daf1t" path="res://nitrous_item.gd" id="1_skbce"]
+[ext_resource type="Texture2D" uid="uid://c11egn6vie63x" path="res://Assets/icon.svg" id="1_yjj21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07o1k"]
+size = Vector2(38, 38)
+
+[node name="NitrousItem" type="Node2D" unique_id=1009124593]
+script = ExtResource("1_skbce")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404519108]
+scale = Vector2(0.296875, 0.296875)
+texture = ExtResource("1_yjj21")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1145506237]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=746535794]
+shape = SubResource("RectangleShape2D_07o1k")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

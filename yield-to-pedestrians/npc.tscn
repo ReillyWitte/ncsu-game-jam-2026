@@ -44,7 +44,7 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_yf5fn")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.54138833
+frame_progress = 0.5949005
 
 [node name="Timer" type="Timer" parent="." unique_id=290960356]
 one_shot = true
