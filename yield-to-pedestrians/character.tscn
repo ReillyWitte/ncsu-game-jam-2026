@@ -10,7 +10,18 @@ size = Vector2(128, 128)
 script = ExtResource("1_pjt0s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296041053]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_wa5vi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1867717761]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_wfnr8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1054962774]
+rotation = 1.5707964
+ignore_rotation = false
+zoom = Vector2(4.5, 4.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 3.5
