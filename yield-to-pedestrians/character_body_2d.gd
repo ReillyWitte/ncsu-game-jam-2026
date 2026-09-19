@@ -89,4 +89,5 @@ func _physics_process(delta):
 		min_speed = old_min_speed
 		speed = max_speed
 		nitro_grab_time = 0
-	print(speed)
+	Global.player_position = global_position
+	#print(velocity.length())

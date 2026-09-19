@@ -48,6 +48,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		#print("Gas collected")
 		Global.player_score = Global.player_score + 100
+		Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
 		queue_free()
