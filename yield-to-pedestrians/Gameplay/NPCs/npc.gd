@@ -57,7 +57,7 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("player"):
 		#print("Gas collected")
-		Global.player_score = Global.player_score + npc_point_value
+		Global.updatePlayerScore(npc_point_value)
 		Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
