@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://x22wigicuw2p" path="res://gas_item.gd" id="1_kkvxi"]
 [ext_resource type="Texture2D" uid="uid://kd5ha706s8bx" path="res://Assets/gascan.png" id="2_kkvxi"]
 [ext_resource type="Texture2D" uid="uid://del01xvi885v5" path="res://Assets/arrow.png" id="3_g3ba1"]
+[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_pl4u1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvxi"]
 size = Vector2(38, 38)
@@ -15,6 +16,14 @@ script = ExtResource("1_kkvxi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=807846288]
 texture = ExtResource("2_kkvxi")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=2065284605]
+scale = Vector2(0.18, 0.18)
+color = Color(0.9326343, 0.30687767, 0.29422012, 1)
+energy = 0.7
+texture = ExtResource("3_pl4u1")
+offset = Vector2(-19, 0)
+height = 20.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277176728]
 

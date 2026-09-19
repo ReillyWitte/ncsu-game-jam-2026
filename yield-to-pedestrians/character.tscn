@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bg1s604sq88gi" path="res://character_body_2d.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://bbpdmg2mpfhjw" path="res://Assets/deer_glasses.png" id="2_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://caidjomg3sngq" path="res://cone_2d.png" id="3_wa5vi"]
+[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_wfnr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
 size = Vector2(439.99997, 849.9999)
@@ -15,9 +17,7 @@ rotation = 1.5707964
 texture = ExtResource("2_pjt0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1867717761]
-position = Vector2(4.7683716e-07, -0.5000019)
 rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_wfnr8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
@@ -27,3 +27,18 @@ zoom = Vector2(2.2, 2.2)
 position_smoothing_speed = 0.5
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 3.25
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1812578842]
+position = Vector2(15.48, 1.27)
+rotation = 1.5707964
+scale = Vector2(0.9, 2.75)
+color = Color(0.9692636, 0.6283027, 0.6095716, 1)
+texture = ExtResource("3_wa5vi")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=336535752]
+position = Vector2(-7.450581e-09, 8.285957e-16)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+color = Color(0.9692636, 0.6283027, 0.6095716, 1)
+energy = 0.2
+texture = ExtResource("4_wfnr8")

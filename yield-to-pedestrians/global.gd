@@ -7,7 +7,7 @@ var kill_count: int = 0
 
 var maxGas: int = 15
 var numGas: int = 0
-var maxNPC: int = 240
+var maxNPC: int = 480
 var numNPC: int = 0
 var maxNitrous: int = 10
 var numNitrous: int = 0
