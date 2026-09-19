@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var target_position: Vector2
+
 func _ready() -> void:
 	Global.numGas = Global.numGas + 1
 	print("Gas number ", Global.numGas, " created")

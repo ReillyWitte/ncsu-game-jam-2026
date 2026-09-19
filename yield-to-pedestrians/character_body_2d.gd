@@ -9,7 +9,7 @@ var old_passed_time = Time.get_ticks_msec()
 var nitro_grab_time = 0
 
 @export var speed = max_speed
-@export var rotation_speed = 4.5
+@export var rotation_speed = 3.75
 @export var grip: float = 20
 @export var drift_grip: float = 1
 @export var drift_turn_boost: float = 1.2
