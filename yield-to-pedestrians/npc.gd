@@ -13,9 +13,14 @@ var move_direction : Vector2 = Vector2.ZERO
 var current_state : NPC_STATE = NPC_STATE.IDLE
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
+var walk_animation: String
+var idle_animation: String
+var npc_species: int
+var npc_point_value: int
 
 func _ready():
 	Global.numNPC = Global.numNPC + 1
+	npc_species = get_random_npc()
 	pick_new_state()
 
 func _physics_process(delta):
@@ -30,12 +35,12 @@ func _physics_process(delta):
 func pick_new_state():
 	if(current_state == NPC_STATE.IDLE):
 		current_state = NPC_STATE.WALK
-		sprite.play("walk")
+		sprite.play(walk_animation)
 		rotation_direction = float(randi_range(-1, 1))
 		timer.start(walk_time)
 	elif(current_state == NPC_STATE.WALK):
 		current_state = NPC_STATE.IDLE
-		sprite.play("idle")
+		sprite.play(idle_animation)
 		velocity = Vector2.ZERO
 		# Stop turning while idle
 		rotation_direction = 0.0
@@ -48,7 +53,7 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		#print("Gas collected")
-		Global.player_score = Global.player_score + 100
+		Global.player_score = Global.player_score + npc_point_value
 		Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
@@ -57,6 +62,25 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func get_random_npc() -> int:
 	var random_value = randf_range(0,100)
 	
-	if random_value < 90:
+	if random_value <= 90:
+		walk_animation = "walk"
+		idle_animation = "idle"
+		npc_point_value = 100
 		return NPC_TYPE.MAN
-	return 0
+	elif random_value <= 93.3:
+		walk_animation = "snake_walk"
+		idle_animation = "snake_idle"
+		npc_point_value = -100
+		return NPC_TYPE.SNAKE
+	elif random_value <= 96.6:
+		walk_animation = "turtle_walk"
+		idle_animation = "turtle_idle"
+		npc_point_value = -250
+		return NPC_TYPE.TURTLE
+	elif random_value <= 100:
+		walk_animation = "deer_walk"
+		idle_animation = "deer_idle"
+		npc_point_value = -500
+		return NPC_TYPE.DEER
+	else:
+		return 0
