@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://7o4620qrwnkv"]
 
-[ext_resource type="PackedScene" uid="uid://cq636nxoj7fbv" path="res://maze_generator.tscn" id="1_h357q"]
-[ext_resource type="PackedScene" uid="uid://b0jqtcc8m8wde" path="res://character.tscn" id="2_e8hha"]
-[ext_resource type="PackedScene" uid="uid://bdj1kj83v6r2w" path="res://hud_canvas.tscn" id="3_pu1r2"]
+[ext_resource type="PackedScene" uid="uid://cq636nxoj7fbv" path="res://Gameplay/Map Generator/maze_generator.tscn" id="1_h357q"]
+[ext_resource type="PackedScene" uid="uid://b0jqtcc8m8wde" path="res://Gameplay/Player/character.tscn" id="2_e8hha"]
+[ext_resource type="PackedScene" uid="uid://bdj1kj83v6r2w" path="res://Menu and UI/HUD/hud_canvas.tscn" id="3_pu1r2"]
 
 [node name="Node2D" type="Node2D" unique_id=870070677]
 
@@ -11,3 +11,11 @@
 [node name="CharacterBody2D" parent="." unique_id=1000631380 instance=ExtResource("2_e8hha")]
 
 [node name="HUD_Canvas" parent="." unique_id=247559260 instance=ExtResource("3_pu1r2")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]
+color = Color(0.11054612, 0.1927129, 0.39576915, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=983541619]
+position = Vector2(2000, -100)
+energy = 0.1
+shadow_enabled = true
