@@ -196,13 +196,14 @@ func spawn_random_gas_item(SCENE) -> void:
 	add_child(new_gas)
 
 func spawn_random_npc(SCENE) -> void:
+	# Nothing to spawn on until the maze has been drawn
+	if road_list.is_empty():
+		return
+
 	var new_npc: CharacterBody2D = SCENE.instantiate()
 	
-	# Pick any tile inside the grid (indices run 0 to size - 1)
-	var cell: Vector2i = Vector2i(
-		randi_range(0, grid_width - 1),
-		randi_range(0, grid_height - 1)
-	)
+	# Pick a random road cell instead of any cell in the grid
+	var cell: Vector2i = road_list.pick_random()
 	
 	# Convert the tile coordinate to the pixel position of that tile's center
 	new_npc.position = map.map_to_local(cell)
