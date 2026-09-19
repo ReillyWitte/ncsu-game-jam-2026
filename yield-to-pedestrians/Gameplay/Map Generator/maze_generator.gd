@@ -16,6 +16,9 @@ var cell_walls = {
 @export var grid_width: int = 33
 @export var grid_height: int = 18
 
+# Boundary walls
+@export var wall_thickness: float = 64.0
+var boundary_body: StaticBody2D
 
 # Road Vars
 var road_list: Array[Vector2i] = []
@@ -104,6 +107,8 @@ func generate_maze() -> void:
 	
 	# 5. Place houses
 	place_houses()
+	
+	create_boundaries()
 
 func carve_passages_from(current: Vector2i) -> void:
 	var directions = cell_walls.keys()
@@ -278,3 +283,38 @@ func place_houses() -> void:
 
 		house_nodes.append(new_house)
 		house_origins.append(origin)
+
+func create_boundaries() -> void:
+	# Remove walls from any previous generation
+	if boundary_body != null:
+		boundary_body.queue_free()
+
+	boundary_body = StaticBody2D.new()
+	# Layers 1 and 3 so the player and the houses-only NPC mask are both blocked
+	boundary_body.collision_layer = 0
+	boundary_body.set_collision_layer_value(1, true)
+	boundary_body.set_collision_layer_value(3, true)
+
+	# Map_to_local returns a cell's center, so back off half a tile to get the map's top-left corner
+	var tile_size: Vector2 = Vector2(map.tile_set.tile_size)
+	var top_left: Vector2 = map.map_to_local(Vector2i(0, 0)) - tile_size / 2.0
+	var bottom_right: Vector2 = top_left + Vector2(grid_width, grid_height) * tile_size
+
+	# Each entry is [point on the edge, normal pointing into the map]
+	var edges: Array = [
+		[top_left, Vector2.DOWN],
+		[bottom_right, Vector2.UP],
+		[top_left, Vector2.RIGHT],
+		[bottom_right, Vector2.LEFT]
+	]
+
+	# One half-plane per edge; everything on the outside of it is solid
+	for edge in edges:
+		var shape: WorldBoundaryShape2D = WorldBoundaryShape2D.new()
+		shape.normal = edge[1]
+		var col: CollisionShape2D = CollisionShape2D.new()
+		col.shape = shape
+		col.position = edge[0]
+		boundary_body.add_child(col)
+
+	add_child(boundary_body)

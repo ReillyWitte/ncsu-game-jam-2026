@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cq636nxoj7fbv"]
 
-[ext_resource type="Script" uid="uid://bubwm75lkmjqh" path="res://maze_generator.gd" id="1_t3ow0"]
+[ext_resource type="Script" uid="uid://bubwm75lkmjqh" path="res://Gameplay/Map Generator/maze_generator.gd" id="1_t3ow0"]
 [ext_resource type="Texture2D" uid="uid://ctrjlidkqtegm" path="res://Assets/house_tiles.png" id="2_t3ow0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1w0m"]
