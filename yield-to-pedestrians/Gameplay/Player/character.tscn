@@ -22,17 +22,18 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_wfnr8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
+position = Vector2(150, 0)
 rotation = 1.5707964
 ignore_rotation = false
 zoom = Vector2(4, 4)
 position_smoothing_speed = 0.5
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 3.25
+rotation_smoothing_speed = 7.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1812578842]
 position = Vector2(31.235, 1.27)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 color = Color(0.9692636, 0.6283027, 0.6095716, 1)
 shadow_enabled = true
 texture = ExtResource("3_wa5vi")
