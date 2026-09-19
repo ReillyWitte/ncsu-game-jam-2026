@@ -1,59 +1,15 @@
 [gd_scene format=3 uid="uid://dx3r6krvmbjx"]
 
-[ext_resource type="Texture2D" uid="uid://cuct4ytsx81pf" path="res://Assets/light_brown_house_1.png" id="1_hfkix"]
-[ext_resource type="Texture2D" uid="uid://cxt0247vvyslr" path="res://windowlight.png" id="2_metfq"]
-[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_6syyc"]
+[ext_resource type="Texture2D" uid="uid://pf4j7synh33r" path="res://Assets/dark_brown_house_1.png" id="1_hfkix"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x541c"]
-cull_mode = 1
-polygon = PackedVector2Array(119, 88, 23, 88, 23, 55, -128, 55, -128, -127, 119, -127)
-
-[node name="LightBrownHouse1" type="Node2D" unique_id=47254016]
+[node name="House1" type="Node2D" unique_id=47254016]
 position = Vector2(-64, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517707006]
 texture = ExtResource("1_hfkix")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1646393991]
+collision_layer = 5
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2079908672]
-polygon = PackedVector2Array(-128, -127, -128, 55, 23, 55, 23, 88, 119, 88, 119, -127)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2021487439]
-occluder = SubResource("OccluderPolygon2D_x541c")
-
-[node name="PointLight2D" type="PointLight2D" parent="LightOccluder2D" unique_id=1128404991]
-position = Vector2(67, 107.00001)
-rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
-color = Color(0.83, 0.82585, 0.581, 1)
-energy = 0.2
-texture = ExtResource("2_metfq")
-
-[node name="PointLight2D4" type="PointLight2D" parent="LightOccluder2D" unique_id=826014574]
-position = Vector2(138, -97)
-scale = Vector2(0.1, 0.1)
-color = Color(0.83, 0.82585, 0.581, 1)
-energy = 0.3
-texture = ExtResource("2_metfq")
-
-[node name="PointLight2D7" type="PointLight2D" parent="LightOccluder2D" unique_id=610099543]
-position = Vector2(138, -97)
-scale = Vector2(0.24, 0.24)
-color = Color(0.83, 0.82585, 0.581, 1)
-energy = 0.15
-texture = ExtResource("3_6syyc")
-
-[node name="PointLight2D5" type="PointLight2D" parent="LightOccluder2D" unique_id=332679973]
-position = Vector2(138, -26.000006)
-scale = Vector2(0.1, 0.1)
-color = Color(0.83, 0.82585, 0.581, 1)
-energy = 0.2
-texture = ExtResource("2_metfq")
-
-[node name="PointLight2D6" type="PointLight2D" parent="LightOccluder2D" unique_id=1978744207]
-position = Vector2(138, 44)
-scale = Vector2(0.1, 0.1)
-color = Color(0.83, 0.82585, 0.581, 1)
-energy = 0.2
-texture = ExtResource("2_metfq")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=139831171]
+polygon = PackedVector2Array(-128, -127, 119, -127, 119, 88, 23, 88, 23, 55, -128, 55)
