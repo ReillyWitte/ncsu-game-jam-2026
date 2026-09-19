@@ -114,6 +114,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(20, 27)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x541c"]
+closed = false
+polygon = PackedVector2Array(-5, -13, -5, -9, -6, -7, -5, -5, -3, -4, -3, -2, -3, 0, -3, 2, -3, 4, -3, 5, -4, 6, -5, 7, -5, 9, -6, 9, -5, 10, -5, 11)
+
 [node name="NPC" type="CharacterBody2D" unique_id=1737135911]
 script = ExtResource("1_ul7y6")
 
@@ -130,5 +134,8 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1336567793]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=485369247]
+occluder = SubResource("OccluderPolygon2D_x541c")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
