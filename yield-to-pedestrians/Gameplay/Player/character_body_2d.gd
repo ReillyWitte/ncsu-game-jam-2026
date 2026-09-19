@@ -1,24 +1,31 @@
 extends CharacterBody2D
 
+# Textures
 @onready var player_sprite: Sprite2D = $Sprite2D
 const DEER_STRAIGHT: Texture2D = preload("res://Assets/deer_glasses.png")
 const DEER_LTURN: Texture2D = preload("res://Assets/deer_lturn.png")
 const DEER_RTURN: Texture2D = preload("res://Assets/deer_rturn.png")
 
-@export var fuel_loss_time = 350
-@export var max_speed = 450
-@export var grass_decel = 10
-var old_max_speed = max_speed
-@export var min_speed = 150
-var old_min_speed = min_speed
+
 var old_passed_time = Time.get_ticks_msec()
 var nitro_grab_time = 0
 
-@export var speed = max_speed
-@export var rotation_speed = 3.75
-@export var grip: float = 20
-@export var drift_grip: float = 1
-@export var drift_turn_boost: float = 1.2
+
+# Movement constants
+@export var rotation_speed := 3.75
+@export var min_speed = 150
+@export var fuel_loss_time = 350
+@export var max_speed = 450
+@export var grass_decel = 10
+@export var nitro_speed := 1000.0
+@export var nitro_rotation_speed := 2.0
+@export var grip := 20.0
+@export var drift_grip := 1.0
+@export var drift_turn_boost := 1.2
+
+var speed = max_speed
+var old_max_speed = max_speed
+var old_min_speed = min_speed
 
 # Camera stuff
 @export var camera_turn_speed: float = 3.25
@@ -27,6 +34,13 @@ var nitro_grab_time = 0
 @export var camera_offset_angle: float = PI / 2.0
 @export var camera_max_lean: float = 0.6
 @export_range(0.0, 1.0) var camera_drift_follow: float = 0.4
+
+# Particles
+@onready var drift_particles: CPUParticles2D = $DriftParticles
+@onready var nitro_particles: CPUParticles2D = $NitroParticles
+
+# Nitro
+@onready var nitro_timer: Timer = $"Nitro Timer"
 
 var rotation_direction = 0
 
@@ -38,7 +52,14 @@ func _ready() -> void:
 
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
-	var target_velocity = transform.x * Input.get_axis("down", "up") * speed
+	
+	# Determine speed
+	var target_velocity : Vector2
+	if !nitro_timer.is_stopped():
+		target_velocity = transform.x * nitro_speed
+	else:
+		target_velocity = transform.x * Input.get_axis("down", "up") * speed
+		
 	var current_grip = grip
 	if rotation_direction < 0:
 		player_sprite.texture = DEER_LTURN
@@ -49,16 +70,24 @@ func get_input():
 	if Input.is_action_pressed("drift"):
 		current_grip = drift_grip
 		rotation_direction *= drift_turn_boost
+		drift_particles.emitting = true
+	else:
+		drift_particles.emitting = false
 	if !Input.is_action_pressed("up"):
 		current_grip = 5
+	
 
 	velocity = velocity.lerp(target_velocity, clampf(current_grip * get_physics_process_delta_time(), 0.0, 1.0))
 
+# Nitro speed boost begin
 func speed_boost() -> void:
-	nitro_grab_time = Time.get_ticks_msec()
-	max_speed = 800
-	min_speed = 600
-	speed = max_speed
+	nitro_timer.start()
+	nitro_particles.emitting = true
+	
+
+# Nitro speed boost end
+func end_speed_boost() -> void:
+	nitro_particles.emitting = false
 
 func update_camera(delta: float) -> void:
 	# Default target is the car's facing; this also eases the camera back when slow, instead of freezing
@@ -96,12 +125,8 @@ func _physics_process(delta):
 	var passed_time = Time.get_ticks_msec()
 	if passed_time >= old_passed_time + fuel_loss_time:
 		Global.currentGasLevel = Global.currentGasLevel - 1
-		print(Global.currentGasLevel)
 		old_passed_time = passed_time
-	if passed_time >= nitro_grab_time + 3000 and nitro_grab_time != 0:
-		max_speed = old_max_speed
-		min_speed = old_min_speed
-		speed = max_speed
-		nitro_grab_time = 0
+	
+	
 	Global.player_position = global_position
-	#print(velocity.length())
+	
