@@ -16,7 +16,6 @@ var cell_walls = {
 @export var grid_width: int = 33
 @export var grid_height: int = 18
 
-
 # Road Vars
 var road_list: Array[Vector2i] = []
 var occupied_cells: Dictionary = {}
@@ -31,17 +30,7 @@ const NPC_SCENE = preload("res://npc.tscn")
 const NITROUS_ITEM_SCENE = preload("res://nitrous_item.tscn")
 
 # House placement
-const HOUSE1_SCENE = preload("res://house.tscn")
-const HOUSE2_SCENE = preload("res://house2.tscn")
-const HOUSE3_SCENE = preload("res://house3.tscn")
-const HOUSE4_SCENE = preload("res://house4.tscn")
-var house_scenes: Array[Resource] = [
-	HOUSE1_SCENE,
-	HOUSE2_SCENE,
-	HOUSE3_SCENE,
-	HOUSE4_SCENE
-]
-
+const HOUSE_SCENE = preload("res://house.tscn")
 @export_range(0.0, 1.0) var house_chance: float = 0.5
 var house_origins: Array[Vector2i] = []
 var house_nodes: Array[Node2D] = []
@@ -196,14 +185,13 @@ func spawn_random_gas_item(SCENE) -> void:
 	add_child(new_gas)
 
 func spawn_random_npc(SCENE) -> void:
-	# Nothing to spawn on until the maze has been drawn
-	if road_list.is_empty():
-		return
-
 	var new_npc: CharacterBody2D = SCENE.instantiate()
 	
-	# Pick a random road cell instead of any cell in the grid
-	var cell: Vector2i = road_list.pick_random()
+	# Pick any tile inside the grid (indices run 0 to size - 1)
+	var cell: Vector2i = Vector2i(
+		randi_range(0, grid_width - 1),
+		randi_range(0, grid_height - 1)
+	)
 	
 	# Convert the tile coordinate to the pixel position of that tile's center
 	new_npc.position = map.map_to_local(cell)
@@ -269,7 +257,6 @@ func place_houses() -> void:
 			used[cell] = true
 
 		# Instance the house scene at the center of the 2x2 block
-		var HOUSE_SCENE = house_scenes.pick_random()
 		var new_house: Node2D = HOUSE_SCENE.instantiate()
 		# map_to_local gives the center of the top-left cell, so adding half a tile
 		# on each axis lands on the center of the whole 2x2 block

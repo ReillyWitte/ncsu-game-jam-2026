@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		update_arrow()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body.is_in_group("player"):
+	if body is CharacterBody2D:
 		#print("Gas collected")
 		Global.numGas = Global.numGas - 1
 		#print(Global.numGas, " gas left")
