@@ -324,4 +324,4 @@ tile_set = SubResource("TileSet_63krb")
 format = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1837325213]
-color = Color(0.13, 0.13, 0.13, 1)
+color = Color(0.27, 0.27, 0.27, 1)
