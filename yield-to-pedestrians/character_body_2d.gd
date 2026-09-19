@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@onready var player_sprite: Sprite2D = $Sprite2D
+const DEER_STRAIGHT: Texture2D = preload("res://Assets/deer_glasses.png")
+const DEER_LTURN: Texture2D = preload("res://Assets/deer_lturn.png")
+const DEER_RTURN: Texture2D = preload("res://Assets/deer_rturn.png")
+
 @export var fuel_loss_time = 350
 @export var max_speed = 450
 var old_max_speed = max_speed
@@ -34,6 +39,12 @@ func get_input():
 	rotation_direction = Input.get_axis("left", "right")
 	var target_velocity = transform.x * Input.get_axis("down", "up") * speed
 	var current_grip = grip
+	if rotation_direction < 0:
+		player_sprite.texture = DEER_LTURN
+	elif rotation_direction > 0:
+		player_sprite.texture = DEER_RTURN
+	else:
+		player_sprite.texture = DEER_STRAIGHT
 	if Input.is_action_pressed("drift"):
 		current_grip = drift_grip
 		rotation_direction *= drift_turn_boost

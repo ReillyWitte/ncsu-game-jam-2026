@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668248433]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=541121638]
-scale = Vector2(2, 2)
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("3_g3ba1")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
