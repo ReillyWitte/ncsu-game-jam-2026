@@ -16,6 +16,7 @@ var cell_walls = {
 @export var grid_width: int = 33
 @export var grid_height: int = 18
 
+
 # Road Vars
 var road_list: Array[Vector2i] = []
 var occupied_cells: Dictionary = {}
@@ -30,7 +31,17 @@ const NPC_SCENE = preload("res://npc.tscn")
 const NITROUS_ITEM_SCENE = preload("res://nitrous_item.tscn")
 
 # House placement
-const HOUSE_SCENE = preload("res://house.tscn")
+const HOUSE1_SCENE = preload("res://house.tscn")
+const HOUSE2_SCENE = preload("res://house2.tscn")
+const HOUSE3_SCENE = preload("res://house3.tscn")
+const HOUSE4_SCENE = preload("res://house4.tscn")
+var house_scenes: Array[Resource] = [
+	HOUSE1_SCENE,
+	HOUSE2_SCENE,
+	HOUSE3_SCENE,
+	HOUSE4_SCENE
+]
+
 @export_range(0.0, 1.0) var house_chance: float = 0.5
 var house_origins: Array[Vector2i] = []
 var house_nodes: Array[Node2D] = []
@@ -257,6 +268,7 @@ func place_houses() -> void:
 			used[cell] = true
 
 		# Instance the house scene at the center of the 2x2 block
+		var HOUSE_SCENE = house_scenes.pick_random()
 		var new_house: Node2D = HOUSE_SCENE.instantiate()
 		# map_to_local gives the center of the top-left cell, so adding half a tile
 		# on each axis lands on the center of the whole 2x2 block
