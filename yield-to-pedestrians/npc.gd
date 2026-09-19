@@ -4,8 +4,8 @@ enum NPC_STATE {IDLE, WALK}
 enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
 
 @export var move_speed : float = 60
-@export var idle_time : float = 5
-@export var walk_time : float = 2
+@export var idle_time : float = randf_range(0.5, 3)
+@export var walk_time : float = randf_range(1,6)
 @export var rotation_speed: float = 1
 var rotation_direction: float = 0
 
