@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bdj1kj83v6r2w"]
+
+[ext_resource type="Texture2D" uid="uid://c50psdcj0qfic" path="res://Assets/fuelgauge.png" id="1_bciim"]
+[ext_resource type="Script" uid="uid://cfq2bb7csp5xs" path="res://hud_canvas.gd" id="1_emmti"]
+[ext_resource type="Texture2D" uid="uid://cdnfuoj1h6u3w" path="res://Assets/light_off.png" id="2_8x0ra"]
+[ext_resource type="Texture2D" uid="uid://bnef63kov607v" path="res://Assets/needle.png" id="3_m50hr"]
+
+[sub_resource type="SystemFont" id="SystemFont_8x0ra"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="FontVariation" id="FontVariation_yf5fn"]
+base_font = SubResource("SystemFont_8x0ra")
+spacing_glyph = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+line_spacing = 5.0
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD_Canvas" type="CanvasLayer" unique_id=247559260]
+script = ExtResource("1_emmti")
+
+[node name="Fuel_Gauge_Sprite" type="Sprite2D" parent="." unique_id=1604015340]
+position = Vector2(320, 805)
+texture = ExtResource("1_bciim")
+
+[node name="Label" type="Label" parent="Fuel_Gauge_Sprite" unique_id=598239095]
+offset_left = -70.0
+offset_top = 198.0
+offset_right = 282.0
+offset_bottom = 266.0
+theme_override_fonts/font = SubResource("FontVariation_yf5fn")
+text = "000000"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 2
+
+[node name="Fuel_Light_Sprite" type="Sprite2D" parent="." unique_id=818161067]
+position = Vector2(324, 810)
+texture = ExtResource("2_8x0ra")
+
+[node name="Needle_Sprite" type="Sprite2D" parent="." unique_id=1098793109]
+position = Vector2(35, 789)
+texture = ExtResource("3_m50hr")
+offset = Vector2(0, -75)
