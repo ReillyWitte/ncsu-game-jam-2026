@@ -13,6 +13,7 @@ var move_direction : Vector2 = Vector2.ZERO
 var current_state : NPC_STATE = NPC_STATE.IDLE
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
+@onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 var walk_animation: String
 var idle_animation: String
 var npc_species: int
@@ -65,22 +66,25 @@ func get_random_npc() -> int:
 	if random_value <= 90:
 		walk_animation = "walk"
 		idle_animation = "idle"
+		collision_shape.shape.size = Vector2(20,27)
 		npc_point_value = 100
 		return NPC_TYPE.MAN
 	elif random_value <= 93.3:
 		walk_animation = "snake_walk"
 		idle_animation = "snake_idle"
+		collision_shape.shape.size = Vector2(30,14)
 		npc_point_value = -100
 		return NPC_TYPE.SNAKE
 	elif random_value <= 96.6:
 		walk_animation = "turtle_walk"
 		idle_animation = "turtle_idle"
+		collision_shape.shape.size = Vector2(27,16)
 		npc_point_value = -250
 		return NPC_TYPE.TURTLE
 	elif random_value <= 100:
 		walk_animation = "deer_walk"
 		idle_animation = "deer_idle"
-		npc_point_value = -500
+		collision_shape.shape.size = Vector2(64,18)
 		return NPC_TYPE.DEER
 	else:
 		return 0
