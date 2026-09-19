@@ -42,21 +42,16 @@ texture = ExtResource("3_pl4u1")
 height = 20.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277176728]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=102485227]
-visible = false
 shape = SubResource("RectangleShape2D_kkvxi")
 
 [node name="Area2D_Big" type="Area2D" parent="." unique_id=1050841495]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Big" unique_id=1207164450]
-visible = false
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=668248433]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=541121638]
 scale = Vector2(1.75, 1.75)
