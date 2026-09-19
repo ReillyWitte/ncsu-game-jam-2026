@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cq636nxoj7fbv"]
 
 [ext_resource type="Script" uid="uid://bubwm75lkmjqh" path="res://maze_generator.gd" id="1_t3ow0"]
-[ext_resource type="Texture2D" uid="uid://cpk6t7rujncrn" path="res://Assets/Road_Tileset-4x.png" id="2_t3ow0"]
+[ext_resource type="Texture2D" uid="uid://cdhpnk4ljbs3p" path="res://Assets/now with houses Road_Tileset-4x.png" id="2_t3ow0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1w0m"]
 texture = ExtResource("2_t3ow0")
@@ -12,9 +12,17 @@ texture_region_size = Vector2i(128, 128)
 18:1/0 = 0
 19:1/0 = 0
 6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
 18:2/0 = 0
 19:2/0 = 0
 6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
 18:3/0 = 0
 6:4/0 = 0
 18:4/0 = 0
@@ -98,17 +106,13 @@ texture_region_size = Vector2i(128, 128)
 12:12/0 = 0
 13:12/0 = 0
 14:12/0 = 0
-0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_63krb"]
 tile_size = Vector2i(128, 128)
-sources/3 = SubResource("TileSetAtlasSource_r1w0m")
+sources/0 = SubResource("TileSetAtlasSource_r1w0m")
 
 [node name="MazeGenerator" type="Node2D" unique_id=702307101]
 script = ExtResource("1_t3ow0")
-grid_width = null
-grid_height = null
-extra_connection_chance = null
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1093877009]
 tile_set = SubResource("TileSet_63krb")

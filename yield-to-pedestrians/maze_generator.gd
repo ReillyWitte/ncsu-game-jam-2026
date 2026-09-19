@@ -19,6 +19,11 @@ var cell_walls = {
 # Road Vars
 var road_list: Array[Vector2i] = []
 var occupied_cells: Dictionary = {}
+var grass_tiles: Array[Vector2i] = [
+	Vector2i(12,2),
+	Vector2i(13,2),
+	Vector2i(12,3),
+	Vector2i(13,3)]
 
 const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
 const NPC_SCENE = preload("res://npc.tscn")
@@ -33,7 +38,7 @@ var grid: Dictionary = {}
 
 # Map each 0-15 bitwise ID to your asset's atlas coordinates Vector2i(x, y)
 var tile_coords = {
-	0: Vector2i(0, 0),    # Empty/Solid background block
+	0: Vector2i(12, 2),    # Empty/Solid background block
 	1: Vector2i(6, 11),   # North dead-end
 	2: Vector2i(0, 6),    # East dead-end
 	3: Vector2i(1, 8),    # North + East corner
@@ -142,7 +147,11 @@ func draw_maze() -> void:
 		var tile_id = grid[cell]
 		
 		if tile_coords.has(tile_id):
-			var atlas_coords = tile_coords[tile_id]
+			var atlas_coords
+			if tile_id == 0:
+				atlas_coords = grass_tiles.pick_random()
+			else:
+				atlas_coords = tile_coords[tile_id]
 			map.set_cell(0, cell, source_id, atlas_coords)
 			
 			# Only record cells that are actually roads (0 is grass)
