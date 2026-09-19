@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_wfnr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
-size = Vector2(439.99997, 849.9999)
+size = Vector2(14, 75)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1000631380 groups=["player"]]
 scale = Vector2(0.5, 0.5)
