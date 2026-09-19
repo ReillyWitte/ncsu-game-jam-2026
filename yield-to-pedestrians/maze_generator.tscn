@@ -322,3 +322,6 @@ script = ExtResource("1_t3ow0")
 [node name="TileMap" type="TileMap" parent="." unique_id=1093877009]
 tile_set = SubResource("TileSet_63krb")
 format = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1837325213]
+color = Color(0.13, 0.13, 0.13, 1)

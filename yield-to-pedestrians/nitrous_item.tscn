@@ -2,22 +2,29 @@
 
 [ext_resource type="Script" uid="uid://de1mko64daf1t" path="res://nitrous_item.gd" id="1_skbce"]
 [ext_resource type="Texture2D" uid="uid://c7x51qn3phxap" path="res://Assets/nitro.png" id="2_skbce"]
+[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_dd4hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07o1k"]
-size = Vector2(6.5, 13)
+size = Vector2(5, 12)
 
 [node name="NitrousItem" type="Node2D" unique_id=1009124593]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 script = ExtResource("1_skbce")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404519108]
 scale = Vector2(0.296875, 0.296875)
 texture = ExtResource("2_skbce")
 
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=393092545]
+scale = Vector2(0.165, 0.165)
+color = Color(0.23751546, 0.6549549, 0.87973005, 1)
+energy = 1.5
+texture = ExtResource("3_dd4hu")
+height = 20.0
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1145506237]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=746535794]
-position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_07o1k")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
