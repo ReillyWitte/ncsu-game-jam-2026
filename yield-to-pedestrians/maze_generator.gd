@@ -29,6 +29,12 @@ const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
 const NPC_SCENE = preload("res://npc.tscn")
 const NITROUS_ITEM_SCENE = preload("res://nitrous_item.tscn")
 
+# House placement
+const HOUSE_SCENE = preload("res://house.tscn")
+@export_range(0.0, 1.0) var house_chance: float = 0.5
+var house_origins: Array[Vector2i] = []
+var house_nodes: Array[Node2D] = []
+
 # Chance to carve extra connections between adjacent roads (0.0 to 1.0)
 @export_range(0.0, 1.0) var extra_connection_chance: float = 0.30 
 
@@ -84,6 +90,9 @@ func generate_maze() -> void:
 	
 	# 4. Draw the maze
 	draw_maze()
+	
+	# 5. Place houses
+	place_houses()
 
 func carve_passages_from(current: Vector2i) -> void:
 	var directions = cell_walls.keys()
@@ -204,3 +213,55 @@ func is_grass_at(world_pos: Vector2) -> bool:
 		return true;
 	
 	return grid[cell] == 0
+
+func place_houses() -> void:
+	# Remove houses from any previous generation
+	for house in house_nodes:
+		house.queue_free()
+	house_nodes.clear()
+	house_origins.clear()
+
+	var candidates: Array[Vector2i] = []
+	# Only the top-left cell of true 2x2 plots (offset 1 inside each 3x3 block)
+	for x in range(1, grid_width - 1, 3):
+		for y in range(1, grid_height - 1, 3):
+			candidates.append(Vector2i(x, y))
+	candidates.shuffle()
+
+	# Cells already claimed by a house so houses never overlap
+	var used: Dictionary = {}
+
+	for origin in candidates:
+		# Random skip so not every plot gets a house
+		if randf() > house_chance:
+			continue
+
+		var block: Array[Vector2i] = [
+			origin,
+			origin + Vector2i(1, 0),
+			origin + Vector2i(0, 1),
+			origin + Vector2i(1, 1)
+		]
+
+		# All four cells must be grass and not already used
+		var is_free: bool = true
+		for cell in block:
+			if grid[cell] != 0 or used.has(cell):
+				is_free = false
+				break
+		if not is_free:
+			continue
+
+		# Claim the cells so houses never overlap
+		for cell in block:
+			used[cell] = true
+
+		# Instance the house scene at the center of the 2x2 block
+		var new_house: Node2D = HOUSE_SCENE.instantiate()
+		# map_to_local gives the center of the top-left cell, so adding half a tile
+		# on each axis lands on the center of the whole 2x2 block
+		new_house.position = map.map_to_local(origin) + Vector2(map.tile_set.tile_size) / 2.0
+		add_child(new_house)
+
+		house_nodes.append(new_house)
+		house_origins.append(origin)

@@ -7,7 +7,7 @@
 size = Vector2(439.99997, 849.9999)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1000631380 groups=["player"]]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pjt0s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296041053]
@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_wfnr8")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
 rotation = 1.5707964
 ignore_rotation = false
-zoom = Vector2(2.2, 2.2)
+zoom = Vector2(2.5, 2.5)
 position_smoothing_speed = 0.5
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 3.25
