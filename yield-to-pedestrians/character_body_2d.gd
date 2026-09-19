@@ -7,8 +7,9 @@ const DEER_RTURN: Texture2D = preload("res://Assets/deer_rturn.png")
 
 @export var fuel_loss_time = 350
 @export var max_speed = 450
+@export var grass_decel = 10
 var old_max_speed = max_speed
-@export var min_speed = 275
+@export var min_speed = 150
 var old_min_speed = min_speed
 var old_passed_time = Time.get_ticks_msec()
 var nitro_grab_time = 0
@@ -48,13 +49,15 @@ func get_input():
 	if Input.is_action_pressed("drift"):
 		current_grip = drift_grip
 		rotation_direction *= drift_turn_boost
-		
+	if !Input.is_action_pressed("up"):
+		current_grip = 5
+
 	velocity = velocity.lerp(target_velocity, clampf(current_grip * get_physics_process_delta_time(), 0.0, 1.0))
 
 func speed_boost() -> void:
 	nitro_grab_time = Time.get_ticks_msec()
 	max_speed = 800
-	min_speed = 750
+	min_speed = 600
 	speed = max_speed
 
 func update_camera(delta: float) -> void:
@@ -86,10 +89,10 @@ func _physics_process(delta):
 		#print("On grass: ", maze.is_grass_at(global_position))
 		if maze.is_grass_at(global_position) == true:
 			if speed > min_speed:
-				speed = speed - 5
+				speed = speed - grass_decel
 		else:
 			if speed < max_speed:
-				speed = speed + 5
+				speed = speed + grass_decel
 	var passed_time = Time.get_ticks_msec()
 	if passed_time >= old_passed_time + fuel_loss_time:
 		Global.currentGasLevel = Global.currentGasLevel - 1

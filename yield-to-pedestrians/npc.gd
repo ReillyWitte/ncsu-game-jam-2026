@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 enum NPC_STATE {IDLE, WALK}
+enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
 
 @export var move_speed : float = 60
 @export var idle_time : float = 5
@@ -52,3 +53,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("Splat")
 		print("Your score: ", Global.player_score)
 		queue_free()
+		
+func get_random_npc() -> int:
+	var random_value = randf_range(0,100)
+	
+	if random_value < 90:
+		return NPC_TYPE.MAN
+	return 0

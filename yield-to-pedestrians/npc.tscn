@@ -2,17 +2,95 @@
 
 [ext_resource type="Texture2D" uid="uid://7vfwjaolu4ef" path="res://Assets/man_2.png" id="1_kh24r"]
 [ext_resource type="Script" uid="uid://byqhhto3u1mql" path="res://npc.gd" id="1_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://bi6ioddw6ty3s" path="res://Assets/pedeerstrian_1.png" id="2_u41a8"]
 [ext_resource type="Texture2D" uid="uid://cv5u76idq7v0q" path="res://Assets/man_1.png" id="2_ul7y6"]
 [ext_resource type="Texture2D" uid="uid://c4njm3i1agdqn" path="res://Assets/man_3.png" id="3_bc6q4"]
+[ext_resource type="Texture2D" uid="uid://cqrhs163k3e1m" path="res://Assets/pedeerstrian_2.png" id="3_cgete"]
+[ext_resource type="Texture2D" uid="uid://l56p6skslfj6" path="res://Assets/snake2.png" id="3_slxoh"]
+[ext_resource type="Texture2D" uid="uid://d30wavwmtdlax" path="res://Assets/pedeerstrian_3.png" id="4_gu3sj"]
+[ext_resource type="Texture2D" uid="uid://bx5a42thfcwk" path="res://Assets/snake1.png" id="4_l64hl"]
+[ext_resource type="Texture2D" uid="uid://c2v040kd3sqbp" path="res://Assets/snake4.png" id="5_215dd"]
+[ext_resource type="Texture2D" uid="uid://bump7luo2hacf" path="res://Assets/snake3.png" id="6_p5bpe"]
+[ext_resource type="Texture2D" uid="uid://c4wewkbo1wpy6" path="res://Assets/turtle_walk1.png" id="7_215dd"]
+[ext_resource type="Texture2D" uid="uid://b7ogotss2qd5b" path="res://Assets/turtle_walk2.png" id="8_p5bpe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u41a8")
+}],
+"loop": 1,
+"name": &"deer_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u41a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cgete")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u41a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gu3sj")
+}],
+"loop": 1,
+"name": &"deer_walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ul7y6")
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_slxoh")
+}],
+"loop": 1,
+"name": &"snake_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_slxoh")
+}, {
+"duration": 1.3,
+"texture": ExtResource("4_l64hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_215dd")
+}, {
+"duration": 1.3,
+"texture": ExtResource("6_p5bpe")
+}],
+"loop": 1,
+"name": &"snake_walk",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_215dd")
+}],
+"loop": 1,
+"name": &"turtle_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_215dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p5bpe")
+}],
+"loop": 1,
+"name": &"turtle_walk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -34,7 +112,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(17, 27)
+size = Vector2(19, 25)
 
 [node name="NPC" type="CharacterBody2D" unique_id=1737135911]
 script = ExtResource("1_ul7y6")
@@ -42,9 +120,8 @@ script = ExtResource("1_ul7y6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=392151897]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"walk"
+animation = &"deer_walk"
 autoplay = "walk"
-frame_progress = 0.5949005
 
 [node name="Timer" type="Timer" parent="." unique_id=290960356]
 one_shot = true
