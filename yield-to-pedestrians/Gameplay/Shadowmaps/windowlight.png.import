@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caidjomg3sngq"
-path="res://.godot/imported/cone_2d.png-da1eb6995721cfb5f235c8fbc2380308.ctex"
+uid="uid://cxt0247vvyslr"
+path="res://.godot/imported/windowlight.png-cd373713cf0baab993d1b5adb1374fd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cone_2d.png"
-dest_files=["res://.godot/imported/cone_2d.png-da1eb6995721cfb5f235c8fbc2380308.ctex"]
+source_file="res://Gameplay/Shadowmaps/windowlight.png"
+dest_files=["res://.godot/imported/windowlight.png-cd373713cf0baab993d1b5adb1374fd5.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://blmofmtgo61q8"
-path="res://.godot/imported/WindrawAestheticItalic-zrZW1.ttf-0c31d7f7e470b5f04409b8188add25da.fontdata"
+uid="uid://d3smrqj1gndle"
+path="res://.godot/imported/KiwiSoda.ttf-53866b342dd33b906067ee0fd3d0419b.fontdata"
 
 [deps]
 
-source_file="res://Fonts/WindrawAestheticItalic-zrZW1.ttf"
-dest_files=["res://.godot/imported/WindrawAestheticItalic-zrZW1.ttf-0c31d7f7e470b5f04409b8188add25da.fontdata"]
+source_file="res://Menu and UI/Fonts/KiwiSoda.ttf"
+dest_files=["res://.godot/imported/KiwiSoda.ttf-53866b342dd33b906067ee0fd3d0419b.fontdata"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dx3r6krvmbjx"]
 
 [ext_resource type="Texture2D" uid="uid://cuct4ytsx81pf" path="res://Assets/light_brown_house_1.png" id="1_hfkix"]
-[ext_resource type="Texture2D" uid="uid://cxt0247vvyslr" path="res://windowlight.png" id="2_metfq"]
-[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_6syyc"]
+[ext_resource type="Texture2D" uid="uid://cxt0247vvyslr" path="res://Gameplay/Shadowmaps/windowlight.png" id="2_metfq"]
+[ext_resource type="Texture2D" uid="uid://cggfsi6i78232" path="res://Gameplay/Shadowmaps/radiant_light.webp" id="3_6syyc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x541c"]
 cull_mode = 1

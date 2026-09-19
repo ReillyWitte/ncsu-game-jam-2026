@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c28wgjixqknrg"]
 
 [ext_resource type="Script" uid="uid://c2kfog2yyurky" path="res://Levels/title_screen.gd" id="1_frj5v"]
-[ext_resource type="FontFile" uid="uid://d3smrqj1gndle" path="res://Fonts/KiwiSoda.ttf" id="2_vn2h1"]
+[ext_resource type="FontFile" uid="uid://d3smrqj1gndle" path="res://Menu and UI/Fonts/KiwiSoda.ttf" id="2_vn2h1"]
 [ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="3_17dc4"]
 [ext_resource type="Texture2D" uid="uid://qhiag2rtg8io" path="res://Assets/menu_screen.png" id="3_g5eml"]
 
@@ -21,6 +21,12 @@ text = "Yield to PeDEERstrians"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=254337971]
+z_index = -4096
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_g5eml")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=585670545]
 offset_left = 970.0
@@ -90,12 +96,6 @@ custom_minimum_size = Vector2(294, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "back"
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=254337971]
-z_index = -4096
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("3_g5eml")
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]

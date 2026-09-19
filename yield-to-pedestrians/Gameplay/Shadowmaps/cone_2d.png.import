@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfcw1jqij3nej"
-path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-65502514064ef8af4bce05336c6482e4.ctex"
+uid="uid://caidjomg3sngq"
+path="res://.godot/imported/cone_2d.png-b1e5cd94f8601583233c601da41d1684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2d_lights_and_shadows_neutral_point_light.webp"
-dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-65502514064ef8af4bce05336c6482e4.ctex"]
+source_file="res://Gameplay/Shadowmaps/cone_2d.png"
+dest_files=["res://.godot/imported/cone_2d.png-b1e5cd94f8601583233c601da41d1684.ctex"]
 
 [params]
 

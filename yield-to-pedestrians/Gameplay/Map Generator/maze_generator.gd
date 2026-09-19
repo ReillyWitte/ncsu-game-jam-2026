@@ -25,12 +25,12 @@ var grass_tiles: Array[Vector2i] = [
 	Vector2i(12,3),
 	Vector2i(13,3)]
 
-const GAS_ITEM_SCENE = preload("res://gas_item.tscn")
-const NPC_SCENE = preload("res://npc.tscn")
-const NITROUS_ITEM_SCENE = preload("res://nitrous_item.tscn")
+const GAS_ITEM_SCENE = preload("res://Gameplay/Items/gas_item.tscn")
+const NPC_SCENE = preload("res://Gameplay/NPCs/npc.tscn")
+const NITROUS_ITEM_SCENE = preload("res://Gameplay/Items/nitrous_item.tscn")
 
 # House placement
-const HOUSE_SCENE = preload("res://house.tscn")
+const HOUSE_SCENE = preload("res://Gameplay/Map Generator/house.tscn")
 @export_range(0.0, 1.0) var house_chance: float = 0.5
 var house_origins: Array[Vector2i] = []
 var house_nodes: Array[Node2D] = []

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b0jqtcc8m8wde"]
 
-[ext_resource type="Script" uid="uid://bg1s604sq88gi" path="res://character_body_2d.gd" id="1_pjt0s"]
+[ext_resource type="Script" uid="uid://bg1s604sq88gi" path="res://Gameplay/Player/character_body_2d.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://bbpdmg2mpfhjw" path="res://Assets/deer_glasses.png" id="2_pjt0s"]
-[ext_resource type="Texture2D" uid="uid://caidjomg3sngq" path="res://cone_2d.png" id="3_wa5vi"]
-[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="4_wfnr8"]
+[ext_resource type="Texture2D" uid="uid://caidjomg3sngq" path="res://Gameplay/Shadowmaps/cone_2d.png" id="3_wa5vi"]
+[ext_resource type="Texture2D" uid="uid://cggfsi6i78232" path="res://Gameplay/Shadowmaps/radiant_light.webp" id="4_wfnr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
 size = Vector2(14, 80)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxt0247vvyslr"
-path="res://.godot/imported/windowlight.png-58bd74eac9b6af08230996e8e9a77c7f.ctex"
+uid="uid://cggfsi6i78232"
+path="res://.godot/imported/radiant_light.webp-a4d8e20dc25ca4dafd10b306c80021d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://windowlight.png"
-dest_files=["res://.godot/imported/windowlight.png-58bd74eac9b6af08230996e8e9a77c7f.ctex"]
+source_file="res://Gameplay/Shadowmaps/radiant_light.webp"
+dest_files=["res://.godot/imported/radiant_light.webp-a4d8e20dc25ca4dafd10b306c80021d9.ctex"]
 
 [params]
 

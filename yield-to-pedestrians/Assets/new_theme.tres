@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://5vbgkepwkepi"]
 
-[ext_resource type="FontFile" uid="uid://d3smrqj1gndle" path="res://Fonts/KiwiSoda.ttf" id="1_sdao3"]
+[ext_resource type="FontFile" uid="uid://d3smrqj1gndle" path="res://Menu and UI/Fonts/KiwiSoda.ttf" id="1_sdao3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr3lc"]
 content_margin_left = 4.0

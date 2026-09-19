@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b5ixhrdphotm0"]
 
-[ext_resource type="Script" uid="uid://de1mko64daf1t" path="res://nitrous_item.gd" id="1_skbce"]
+[ext_resource type="Script" uid="uid://de1mko64daf1t" path="res://Gameplay/Items/nitrous_item.gd" id="1_skbce"]
 [ext_resource type="Texture2D" uid="uid://c7x51qn3phxap" path="res://Assets/nitro.png" id="2_skbce"]
-[ext_resource type="Texture2D" uid="uid://cfcw1jqij3nej" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_dd4hu"]
+[ext_resource type="Texture2D" uid="uid://cggfsi6i78232" path="res://Gameplay/Shadowmaps/radiant_light.webp" id="3_dd4hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07o1k"]
 size = Vector2(5, 12)
