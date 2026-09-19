@@ -22,6 +22,8 @@ var npc_point_value: int
 
 func _ready():
 	Global.numNPC = Global.numNPC + 1
+	physical_collision_shape.shape = physical_collision_shape.shape.duplicate()
+	collision_shape.shape = collision_shape.shape.duplicate()
 	npc_species = get_random_npc()
 	pick_new_state()
 
@@ -90,6 +92,7 @@ func get_random_npc() -> int:
 		idle_animation = "deer_idle"
 		physical_collision_shape.shape.size = Vector2(64,18)
 		collision_shape.shape.size = Vector2(64,18)
+		npc_point_value = -500
 		return NPC_TYPE.DEER
 	else:
 		return 0
