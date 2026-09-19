@@ -1,5 +1,7 @@
 extends Node
 
+var level = 0
+
 var player_score : int = 0
 var maxGas: int = 15
 var numGas: int = 0

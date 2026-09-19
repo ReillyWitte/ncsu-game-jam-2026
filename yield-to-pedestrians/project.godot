@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Yield to Pedestrians"
-run/main_scene="uid://7o4620qrwnkv"
+run/main_scene="uid://c28wgjixqknrg"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
