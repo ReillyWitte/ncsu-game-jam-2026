@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cw7bowccnvckc"
+path="res://.godot/imported/gameplay_intro.wav-60659c346017f37255246e77da0cdc71.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Music/gameplay_intro.wav"
+dest_files=["res://.godot/imported/gameplay_intro.wav-60659c346017f37255246e77da0cdc71.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

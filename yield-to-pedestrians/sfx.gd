@@ -47,10 +47,7 @@ var TURBO = preload("res://Music and Sounds/SFX/spinopel-turbo-flutter-336362_Nd
 
 var SKETTY = preload("res://Music and Sounds/SFX/People/Sketty.mp3")
 
-var MenuMusic = preload("res://Music and Sounds/Music/main_menu_music.mp3")
-var gameMusicIntro = preload("res://Music and Sounds/Music/intro_gameplay_song.mp3")
-var gameMusicLoop = preload("res://Music and Sounds/Music/gameplay_loop_music.mp3")
-var endMusic = preload("res://Music and Sounds/Music/endscreen_music.mp3")
+
 
 func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0) -> void:
 	# Each call gets its own player so overlapping sounds don't cut each other off

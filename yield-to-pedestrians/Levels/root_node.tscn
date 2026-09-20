@@ -2,22 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://cq636nxoj7fbv" path="res://Gameplay/Map Generator/maze_generator.tscn" id="1_h357q"]
 [ext_resource type="PackedScene" uid="uid://b0jqtcc8m8wde" path="res://Gameplay/Player/character.tscn" id="2_e8hha"]
+[ext_resource type="AudioStream" uid="uid://dlp2pssbw63ak" path="res://Music and Sounds/Music/main_gameplay_loop.wav" id="3_25wab"]
 [ext_resource type="PackedScene" uid="uid://bdj1kj83v6r2w" path="res://Menu and UI/HUD/hud_canvas.tscn" id="3_pu1r2"]
 [ext_resource type="PackedScene" uid="uid://bwmrj7d08krnx" path="res://Levels/game_over_screen.tscn" id="4_e8hha"]
-[ext_resource type="AudioStream" uid="uid://72hvuxwtbhn1" path="res://Music and Sounds/Music/gameplay_music.mp3" id="5_pu1r2"]
+[ext_resource type="AudioStream" uid="uid://cw7bowccnvckc" path="res://Music and Sounds/Music/gameplay_intro.wav" id="5_6ixnc"]
 [ext_resource type="Script" uid="uid://bmrr11y3n11hn" path="res://Levels/gameplay_music.gd" id="6_25wab"]
 
 [node name="Node2D" type="Node2D" unique_id=870070677]
 
 [node name="MazeGenerator" parent="." unique_id=702307101 instance=ExtResource("1_h357q")]
 
-[node name="gameplayMusic" type="AudioStreamPlayer2D" parent="MazeGenerator" unique_id=2079274776]
-unique_name_in_owner = true
-stream = ExtResource("5_pu1r2")
-bus = &"Music"
+[node name="CharacterBody2D" parent="." unique_id=1000631380 instance=ExtResource("2_e8hha")]
+
+[node name="GameplayMusic" type="Node2D" parent="CharacterBody2D" unique_id=1726216018]
 script = ExtResource("6_25wab")
 
-[node name="CharacterBody2D" parent="." unique_id=1000631380 instance=ExtResource("2_e8hha")]
+[node name="mainLoop" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=972001120]
+unique_name_in_owner = true
+stream = ExtResource("3_25wab")
+volume_db = -3.5
+bus = &"Music"
+
+[node name="introPlayer" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=421916130]
+stream = ExtResource("5_6ixnc")
+volume_db = -3.5
+bus = &"Music"
 
 [node name="HUD_Canvas" parent="." unique_id=247559260 instance=ExtResource("3_pu1r2")]
 
@@ -27,3 +36,4 @@ script = ExtResource("6_25wab")
 color = Color(0.11054612, 0.1927129, 0.39576915, 1)
 
 [connection signal="game_end" from="CharacterBody2D" to="GameOverScreen" method="game_end"]
+[connection signal="finished" from="CharacterBody2D/GameplayMusic/introPlayer" to="CharacterBody2D/GameplayMusic" method="play_main"]
