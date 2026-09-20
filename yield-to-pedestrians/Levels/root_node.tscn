@@ -3,10 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cq636nxoj7fbv" path="res://Gameplay/Map Generator/maze_generator.tscn" id="1_h357q"]
 [ext_resource type="PackedScene" uid="uid://b0jqtcc8m8wde" path="res://Gameplay/Player/character.tscn" id="2_e8hha"]
 [ext_resource type="PackedScene" uid="uid://bdj1kj83v6r2w" path="res://Menu and UI/HUD/hud_canvas.tscn" id="3_pu1r2"]
-[ext_resource type="Script" uid="uid://tc8tgh8f1wo5" path="res://Levels/game_over_screen.gd" id="4_6ixnc"]
-[ext_resource type="Texture2D" uid="uid://cfkus0xiy24gw" path="res://Assets/newspaper.png" id="4_25wab"]
-[ext_resource type="FontFile" uid="uid://ky6i0qbjdibg" path="res://Menu and UI/Fonts/Pixelta.ttf" id="5_6ixnc"]
-[ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="6_lu7fw"]
+[ext_resource type="PackedScene" uid="uid://bwmrj7d08krnx" path="res://Levels/game_over_screen.tscn" id="4_e8hha"]
 
 [node name="Node2D" type="Node2D" unique_id=870070677]
 
@@ -19,78 +16,7 @@
 [node name="CanvasModulate" type="CanvasModulate" parent="HUD_Canvas" unique_id=1216310700]
 color = Color(0.77279997, 0.80079997, 0.84, 1)
 
-[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=754680504]
-process_mode = 3
-layer = 2
-script = ExtResource("4_6ixnc")
-
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen" unique_id=306974594]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.09019608, 0.09019608, 0.09019608, 0)
-
-[node name="NewsPaper" type="TextureRect" parent="GameOverScreen" unique_id=1262826459]
-visible = false
-z_index = 2048
-offset_left = 300.0
-offset_top = 80.0
-offset_right = 690.0
-offset_bottom = 540.0
-scale = Vector2(2, 2)
-texture = ExtResource("4_25wab")
-
-[node name="DeadNum" type="Label" parent="GameOverScreen/NewsPaper" unique_id=867512149]
-visible = false
-z_index = 4096
-layout_mode = 0
-offset_left = 239.0
-offset_top = 384.0
-offset_right = 347.0
-offset_bottom = 431.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6ixnc")
-theme_override_font_sizes/font_size = 40
-text = "100"
-horizontal_alignment = 1
-
-[node name="Score" type="Label" parent="GameOverScreen/NewsPaper" unique_id=1926684402]
-visible = false
-z_index = 4096
-layout_mode = 0
-offset_left = 53.5
-offset_top = 385.5
-offset_right = 161.5
-offset_bottom = 432.5
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6ixnc")
-theme_override_font_sizes/font_size = 40
-text = "10000"
-
-[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen" unique_id=555598650]
-visible = false
-offset_left = 1025.0
-offset_right = 1925.0
-offset_bottom = 1080.0
-
-[node name="MainButtons" type="VBoxContainer" parent="GameOverScreen/CenterContainer" unique_id=1603862880]
-layout_mode = 2
-theme = ExtResource("6_lu7fw")
-theme_override_constants/separation = 20
-
-[node name="retry" type="Button" parent="GameOverScreen/CenterContainer/MainButtons" unique_id=444099906]
-layout_mode = 2
-text = "Play Again!"
-
-[node name="MainMenu" type="Button" parent="GameOverScreen/CenterContainer/MainButtons" unique_id=609915344]
-layout_mode = 2
-text = "Main Menu"
+[node name="GameOverScreen" parent="." unique_id=1538259228 instance=ExtResource("4_e8hha")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]
 color = Color(0.11054612, 0.1927129, 0.39576915, 1)
-
-[connection signal="game_end" from="CharacterBody2D" to="GameOverScreen" method="game_end"]
-[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/retry" to="GameOverScreen" method="_on_retry_pressed"]
-[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/MainMenu" to="GameOverScreen" method="_on_main_menu_pressed"]
