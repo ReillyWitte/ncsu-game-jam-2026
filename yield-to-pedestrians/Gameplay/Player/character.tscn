@@ -1,17 +1,37 @@
 [gd_scene format=3 uid="uid://b0jqtcc8m8wde"]
 
 [ext_resource type="Script" uid="uid://bg1s604sq88gi" path="res://Gameplay/Player/character_body_2d.gd" id="1_pjt0s"]
+[ext_resource type="Texture2D" uid="uid://ccheyamdm3knm" path="res://Assets/smoke_particle.png" id="2_dyh8v"]
 [ext_resource type="Texture2D" uid="uid://bbpdmg2mpfhjw" path="res://Assets/deer_glasses.png" id="2_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://caidjomg3sngq" path="res://Gameplay/Shadowmaps/cone_2d.png" id="3_wa5vi"]
 [ext_resource type="Texture2D" uid="uid://cggfsi6i78232" path="res://Gameplay/Shadowmaps/radiant_light.webp" id="4_wfnr8"]
+[ext_resource type="Texture2D" uid="uid://bbghgsh8hsg0l" path="res://Assets/fire_particle.png" id="6_52j28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
 size = Vector2(14, 80)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_52j28"]
+blend_mode = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1000631380 groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pjt0s")
 max_speed = 600
+
+[node name="DriftParticles" type="CPUParticles2D" parent="." unique_id=1866018038]
+position = Vector2(-44, 0)
+emitting = false
+amount = 70
+texture = ExtResource("2_dyh8v")
+lifetime_randomness = 0.55
+emission_shape = 1
+emission_sphere_radius = 9.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.6
+hue_variation_min = -0.1
+hue_variation_max = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296041053]
 rotation = 1.5707964
@@ -22,25 +42,44 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_wfnr8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=273279512]
+position = Vector2(150, 0)
 rotation = 1.5707964
 ignore_rotation = false
 zoom = Vector2(4, 4)
 position_smoothing_speed = 0.5
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 3.25
+rotation_smoothing_speed = 7.0
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1812578842]
+[node name="Headlight" type="PointLight2D" parent="." unique_id=1812578842]
 position = Vector2(31.235, 1.27)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 color = Color(0.9692636, 0.6283027, 0.6095716, 1)
 shadow_enabled = true
 texture = ExtResource("3_wa5vi")
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=336535752]
+[node name="CharacterGlow" type="PointLight2D" parent="." unique_id=336535752]
 position = Vector2(-7.450581e-09, 8.285957e-16)
 rotation = 1.5707964
 scale = Vector2(0.2, 0.2)
 color = Color(0.9692636, 0.6283027, 0.6095716, 1)
 energy = 0.2
 texture = ExtResource("4_wfnr8")
+
+[node name="NitroParticles" type="CPUParticles2D" parent="." unique_id=183227887]
+material = SubResource("CanvasItemMaterial_52j28")
+position = Vector2(-46.589996, 8.285957e-16)
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 500
+texture = ExtResource("6_52j28")
+lifetime = 0.3
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2(0, 0)
+
+[node name="Nitro Timer" type="Timer" parent="." unique_id=1450515977]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Nitro Timer" to="." method="end_speed_boost"]

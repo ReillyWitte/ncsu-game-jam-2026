@@ -16,7 +16,7 @@ var player_in_range: bool = false
 
 func _ready() -> void:
 	Global.numGas = Global.numGas + 1
-	print("Gas number ", Global.numGas, " created")
+	#print("Gas number ", Global.numGas, " created")
 	arrow.hide()
 	
 func _process(delta: float) -> void:

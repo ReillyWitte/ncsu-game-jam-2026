@@ -3,6 +3,8 @@ extends CharacterBody2D
 enum NPC_STATE {IDLE, WALK}
 enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
 
+const BLOOD_SCENE = preload("res://Gameplay/NPCs/blood.tscn")
+
 @export var move_speed : float = 60
 @export var idle_time : float = randf_range(0.5, 3)
 @export var walk_time : float = randf_range(1,6)
@@ -57,10 +59,18 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("player"):
 		#print("Gas collected")
-		Global.player_score = Global.player_score + npc_point_value
+		Global.updatePlayerScore(npc_point_value)
 		Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
+		var new_blood: Node2D = BLOOD_SCENE.instantiate()
+		new_blood.position = position
+		var y_scale = body.velocity.length()/200
+		if y_scale < 0.5:
+			y_scale = 0.5
+		new_blood.scale = Vector2(1,y_scale)
+		new_blood.rotation = body.velocity.angle() + deg_to_rad(90)
+		add_sibling(new_blood)
 		queue_free()
 		
 func get_random_npc() -> int:
