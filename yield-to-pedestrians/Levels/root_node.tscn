@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bwmrj7d08krnx" path="res://Levels/game_over_screen.tscn" id="4_e8hha"]
 [ext_resource type="AudioStream" uid="uid://cw7bowccnvckc" path="res://Music and Sounds/Music/gameplay_intro.wav" id="5_6ixnc"]
 [ext_resource type="Script" uid="uid://bmrr11y3n11hn" path="res://Levels/gameplay_music.gd" id="6_25wab"]
+[ext_resource type="AudioStream" uid="uid://duitbkp05l80b" path="res://Music and Sounds/SFX/gas_chime.wav" id="6_lu7fw"]
+[ext_resource type="AudioStream" uid="uid://bw4ouue8v8yqg" path="res://Music and Sounds/SFX/spinopel-indian-scout-motorcycle-559425_HPMZDp4X.mp3" id="7_13spb"]
 
 [node name="Node2D" type="Node2D" unique_id=870070677]
 
@@ -20,13 +22,25 @@ script = ExtResource("6_25wab")
 [node name="mainLoop" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=972001120]
 unique_name_in_owner = true
 stream = ExtResource("3_25wab")
-volume_db = -3.5
+volume_db = 2.0
 bus = &"Music"
 
 [node name="introPlayer" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=421916130]
 stream = ExtResource("5_6ixnc")
-volume_db = -3.5
+volume_db = 2.0
 bus = &"Music"
+
+[node name="Gas Chime" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=562972680]
+position = Vector2(960, 540)
+stream = ExtResource("6_lu7fw")
+volume_db = 13.0
+bus = &"SFX"
+
+[node name="bike noise" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=1222369347]
+stream = ExtResource("7_13spb")
+volume_db = -9.0
+autoplay = true
+bus = &"SFX"
 
 [node name="HUD_Canvas" parent="." unique_id=247559260 instance=ExtResource("3_pu1r2")]
 
