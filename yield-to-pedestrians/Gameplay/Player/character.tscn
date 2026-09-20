@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://caidjomg3sngq" path="res://Gameplay/Shadowmaps/cone_2d.png" id="3_wa5vi"]
 [ext_resource type="Texture2D" uid="uid://cggfsi6i78232" path="res://Gameplay/Shadowmaps/radiant_light.webp" id="4_wfnr8"]
 [ext_resource type="Texture2D" uid="uid://bbghgsh8hsg0l" path="res://Assets/fire_particle.png" id="6_52j28"]
+[ext_resource type="AudioStream" uid="uid://bw4ouue8v8yqg" path="res://Music and Sounds/SFX/spinopel-indian-scout-motorcycle-559425_HPMZDp4X.mp3" id="7_n16hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnr8"]
 size = Vector2(14, 82)
@@ -102,6 +103,11 @@ one_shot = true
 
 [node name="Game End Timer" type="Timer" parent="." unique_id=226602075]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=240568946]
+stream = ExtResource("7_n16hn")
+volume_db = -13.072
+autoplay = true
 
 [connection signal="timeout" from="Nitro Timer" to="." method="end_speed_boost"]
 [connection signal="timeout" from="Game End Timer" to="." method="emit_game_end"]

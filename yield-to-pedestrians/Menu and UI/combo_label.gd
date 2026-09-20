@@ -1,5 +1,6 @@
 extends Node2D
 
+var signed_gain
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("combo_popup"):

@@ -42,6 +42,10 @@ var SFX_Person_VoiceLines: Array[Resource] = [
 ]
 var SPLAT = preload("res://Music and Sounds/SFX/universfield-wet-squelch-impact-352302.mp3")
 var MISTAKE = preload("res://Music and Sounds/SFX/lesiakower-error-mistake-sound-effect-incorrect-answer-437420.mp3")
+var GLUG = preload("res://Music and Sounds/SFX/glug-glug-sound-effects_vktLrAhx.mp3")
+var TURBO = preload("res://Music and Sounds/SFX/spinopel-turbo-flutter-336362_NdZIkmcY.mp3")
+
+var SKETTY = preload("res://Music and Sounds/SFX/People/Sketty.mp3")
 
 var MenuMusic = preload("res://Music and Sounds/Music/main_menu_music.mp3")
 var gameMusicIntro = preload("res://Music and Sounds/Music/intro_gameplay_song.mp3")

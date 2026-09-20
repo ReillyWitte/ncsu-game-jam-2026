@@ -7,6 +7,7 @@ var MAN_NPC_IDLE_TYPES: Array[String] = ["idle", "angel_idle", "child_idle", "cl
 
 const BLOOD_SCENE = preload("res://Gameplay/NPCs/blood.tscn")
 const COMBO_LABEL_SCENE = preload("res://Menu and UI/combo_label.tscn")
+const SCORE_LABEL_SCENE = preload("res://Menu and UI/score_label.tscn")
 
 @export var move_speed : float = 60
 @export var idle_time : float = randf_range(0.5, 3)
@@ -83,6 +84,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if Global.last_multiplier > 1:
 			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
 			add_sibling(new_combo_label)
+		var new_score_label: Node2D = SCORE_LABEL_SCENE.instantiate()
+		add_sibling(new_score_label)
 		queue_free()
 		
 func get_random_npc() -> int:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3y4kdsf73sem"
+path="res://.godot/imported/spinopel-turbo-flutter-336362_NdZIkmcY.mp3-8c606266cc651f71c44f8061a157cfd6.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/spinopel-turbo-flutter-336362_NdZIkmcY.mp3"
+dest_files=["res://.godot/imported/spinopel-turbo-flutter-336362_NdZIkmcY.mp3-8c606266cc651f71c44f8061a157cfd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

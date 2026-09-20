@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://fjw4x0rqfva"]
+
+[ext_resource type="Script" uid="uid://h8txgtsi1bp5" path="res://Menu and UI/score_label.gd" id="1_3llde"]
+[ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="1_anp1u"]
+
+[node name="Score_Label" type="Node2D" unique_id=79956814]
+script = ExtResource("1_3llde")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=986743224]
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=21621570]
+offset_left = 1577.0
+offset_top = 1004.0
+offset_right = 1862.0
+offset_bottom = 1104.0
+theme = ExtResource("1_anp1u")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 55
+text = "+100 points"
+horizontal_alignment = 1

@@ -8,6 +8,7 @@ var last_kill_time: int = -10000
 var last_multiplier: float = 1
 const combo_increment = 0.5
 const combo_time_interval = 2000
+var last_point_gain = 0
 
 var maxGas: int = 15
 var minGas: int = 3
@@ -25,7 +26,9 @@ var currentGasLevel: float = 100
 func updatePlayerScore(npc_point_value:int):
 	var kill_time = Time.get_ticks_msec()
 	var combo_multiplier = get_combo_multiplier(kill_time, last_kill_time, last_multiplier, npc_point_value)
-	player_score = player_score + int(npc_point_value * combo_multiplier)
+	var player_score_increment = int(npc_point_value * combo_multiplier)
+	player_score = player_score + player_score_increment
+	last_point_gain = player_score_increment
 	print("Combo Mult:", combo_multiplier)
 	print("Last Kill Time:", last_kill_time)
 	print("Current Kill Time:", kill_time)
@@ -55,4 +58,6 @@ func reset_globals():
 	numNitrous = 0
 
 	currentGasLevel = 100
+	
+	last_point_gain = 0
 	

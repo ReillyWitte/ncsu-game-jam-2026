@@ -9,6 +9,8 @@ func _ready():
 	$CenterContainer/SettingsMenu/mainvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	$CenterContainer/SettingsMenu/musicslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	$CenterContainer/SettingsMenu/sfxvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+func _ready() -> void:
+	$CenterContainer/MainButtons/Play.grab_focus()
 
 func _on_play_pressed() -> void:
 	state = TITLE_SCREEN_STATE.TUTORIAL1
@@ -18,10 +20,13 @@ func _on_play_pressed() -> void:
 func _on_settings_pressed() -> void:
 	$CenterContainer/MainButtons.visible = false
 	$CenterContainer/SettingsMenu.visible = true
+	$CenterContainer/SettingsMenu/HSlider.grab_focus()
 
 func _on_credits_pressed() -> void:
 	$CenterContainer/MainButtons.visible = false
 	$CenterContainer/CreditsMenu.visible = true
+	$CenterContainer/CreditsMenu/Back.grab_focus()
+
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
