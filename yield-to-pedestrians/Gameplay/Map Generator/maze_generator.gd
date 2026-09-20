@@ -86,10 +86,13 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	randomize()
 	generate_maze()
+	
 	for i in Global.maxGas:
 		spawn_random_gas_item(GAS_ITEM_SCENE)
 	for j in Global.maxNPC:
 		spawn_random_npc(NPC_SCENE)
+		
+	reduce_max_Gas()
 
 func generate_maze() -> void:
 	map.clear()
@@ -336,3 +339,10 @@ func create_boundaries() -> void:
 				continue
 			# Randomly pick one of the two trees for this border cell
 			map.set_cell(0, cell, source_id, tree_options.pick_random())
+
+func reduce_max_Gas():
+	await get_tree().create_timer(1.0).timeout
+	if Global.maxGas > Global.minGas:
+		Global.maxGas = Global.maxGas - 1 
+		print("maxgas:" + str(Global.maxGas))
+	reduce_max_Gas()
