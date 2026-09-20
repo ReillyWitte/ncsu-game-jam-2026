@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bdj1kj83v6r2w"]
 
 [ext_resource type="Texture2D" uid="uid://c50psdcj0qfic" path="res://Assets/fuelgauge.png" id="1_bciim"]
-[ext_resource type="Script" uid="uid://cfq2bb7csp5xs" path="res://hud_canvas.gd" id="1_emmti"]
+[ext_resource type="Script" uid="uid://cfq2bb7csp5xs" path="res://Menu and UI/HUD/hud_canvas.gd" id="1_emmti"]
 [ext_resource type="Texture2D" uid="uid://cdnfuoj1h6u3w" path="res://Assets/light_off.png" id="2_8x0ra"]
 [ext_resource type="Texture2D" uid="uid://bnef63kov607v" path="res://Assets/needle.png" id="3_m50hr"]
 
 [sub_resource type="SystemFont" id="SystemFont_8x0ra"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_yf5fn"]
 base_font = SubResource("SystemFont_8x0ra")

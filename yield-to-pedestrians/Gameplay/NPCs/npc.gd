@@ -71,6 +71,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		new_blood.scale = Vector2(1,y_scale)
 		new_blood.rotation = body.velocity.angle() + deg_to_rad(90)
 		add_sibling(new_blood)
+		var tile_map: Node = get_parent().get_node("TileMap")
+		get_parent().move_child(new_blood, tile_map.get_index() + 1)
 		queue_free()
 		
 func get_random_npc() -> int:
