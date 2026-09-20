@@ -25,6 +25,7 @@ func game_end() -> void:
 	get_tree().paused = true
 	self.show()
 	
+	$CenterContainer/MainButtons/retry.grab_focus()
 	
 	end_music.play()
 	
