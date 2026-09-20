@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0jqtcc8m8wde" path="res://Gameplay/Player/character.tscn" id="2_e8hha"]
 [ext_resource type="PackedScene" uid="uid://bdj1kj83v6r2w" path="res://Menu and UI/HUD/hud_canvas.tscn" id="3_pu1r2"]
 [ext_resource type="PackedScene" uid="uid://bwmrj7d08krnx" path="res://Levels/game_over_screen.tscn" id="4_e8hha"]
+[ext_resource type="AudioStream" uid="uid://72hvuxwtbhn1" path="res://Music and Sounds/Music/gameplay_music.mp3" id="5_pu1r2"]
 
 [node name="Node2D" type="Node2D" unique_id=870070677]
 
@@ -17,5 +18,10 @@
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]
 color = Color(0.11054612, 0.1927129, 0.39576915, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2079274776]
+stream = ExtResource("5_pu1r2")
+autoplay = true
+bus = &"Music"
 
 [connection signal="game_end" from="CharacterBody2D" to="GameOverScreen" method="game_end"]
