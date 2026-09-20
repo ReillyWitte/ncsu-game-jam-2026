@@ -32,7 +32,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Global.currentGasLevel = Global.currentGasLevel + 20
 		if Global.currentGasLevel > Global.fullGasLevel:
 			Global.currentGasLevel = Global.fullGasLevel
-		Sfx.play_sfx(Sfx.GLUG, 4)
+		Sfx.play_sfx(Sfx.GLUG, 0)
 		queue_free()
 		
 

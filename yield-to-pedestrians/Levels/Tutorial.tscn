@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://s8s051ujfxcx"]
+
+[ext_resource type="Script" uid="uid://16j1hwlk4sgb" path="res://Levels/tutorial.gd" id="1_o4sb5"]
+[ext_resource type="Texture2D" uid="uid://qhiag2rtg8io" path="res://Assets/menu_screen.png" id="2_tqhs8"]
+[ext_resource type="Texture2D" uid="uid://dtj044e85ady3" path="res://Assets/menu screen2.png" id="3_4d44r"]
+[ext_resource type="Texture2D" uid="uid://bo5csiiiduex2" path="res://Assets/howtoplay_screen1.png" id="4_ggrfr"]
+[ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="5_vpak1"]
+[ext_resource type="Texture2D" uid="uid://wh4ev8rlck51" path="res://Assets/howtoplay_screen2.png" id="6_4w4cy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lhii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tqhs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4d44r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Tutorial" type="Control" unique_id=734241200]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4sb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=398850601]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_8lhii")
+autoplay = "default"
+
+[node name="Tutorial1" type="CanvasLayer" parent="." unique_id=1431768690]
+
+[node name="ImageTut1" type="TextureRect" parent="Tutorial1" unique_id=305477914]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_ggrfr")
+
+[node name="Label" type="Label" parent="Tutorial1" unique_id=1068055984]
+offset_left = 988.0
+offset_top = 900.0
+offset_right = 1630.0002
+offset_bottom = 976.0
+theme = ExtResource("5_vpak1")
+text = "GET YOUR REVENGE"
+
+[node name="Tutorial2" type="CanvasLayer" parent="." unique_id=1224917366]
+visible = false
+
+[node name="ImageTut2" type="TextureRect" parent="Tutorial2" unique_id=728362933]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_4w4cy")

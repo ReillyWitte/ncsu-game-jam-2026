@@ -6,8 +6,6 @@
 [ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="3_17dc4"]
 [ext_resource type="Texture2D" uid="uid://qhiag2rtg8io" path="res://Assets/menu_screen.png" id="3_g5eml"]
 [ext_resource type="AudioStream" uid="uid://bjg27daickw78" path="res://Music and Sounds/Music/main_menu_theme.wav" id="5_1lkgl"]
-[ext_resource type="Texture2D" uid="uid://bo5csiiiduex2" path="res://Assets/howtoplay_screen1.png" id="6_1lkgl"]
-[ext_resource type="Texture2D" uid="uid://wh4ev8rlck51" path="res://Assets/howtoplay_screen2.png" id="7_i7t4j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -148,20 +146,6 @@ stream = ExtResource("5_1lkgl")
 volume_db = 1.0
 autoplay = true
 bus = &"Music"
-
-[node name="Tutorial1" type="CanvasLayer" parent="." unique_id=1937505331]
-
-[node name="ImageTut1" type="TextureRect" parent="Tutorial1" unique_id=1396962802]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_1lkgl")
-
-[node name="Tutorial2" type="CanvasLayer" parent="." unique_id=776947143]
-
-[node name="ImageTut2" type="TextureRect" parent="Tutorial2" unique_id=450030036]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_i7t4j")
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]

@@ -66,8 +66,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Global.updatePlayerScore(npc_point_value)
 		if npc_point_value > 0:
 			Global.kill_count = Global.kill_count + 1
-		print("Splat")
-		print("Your score: ", Global.player_score)
 		var new_blood: Node2D = BLOOD_SCENE.instantiate()
 		new_blood.position = position
 		var y_scale = body.velocity.length()/200
@@ -79,8 +77,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var tile_map: Node = get_parent().get_node("TileMap")
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
 		if decide_if_scream(npc_point_value):
-			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -13, .25)
-		Sfx.play_sfx(Sfx.SPLAT, -12, .1)
+			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -15, .25)
+		Sfx.play_sfx(Sfx.SPLAT, -10, .1)
 		if Global.last_multiplier > 1:
 			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
 			add_sibling(new_combo_label)

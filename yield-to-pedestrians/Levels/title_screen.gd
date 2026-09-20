@@ -1,17 +1,19 @@
 extends Node2D
 
+# state machine
 enum TITLE_SCREEN_STATE {MAIN_SCREEN, TUTORIAL1, TUTORIAL2}
 var state = TITLE_SCREEN_STATE.MAIN_SCREEN
 
 func _ready():
-	$Tutorial1/ImageTut1.visible = false
-	$Tutorial2/ImageTut2.visible = false
+	#audio
 	$CenterContainer/SettingsMenu/mainvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	$CenterContainer/SettingsMenu/musicslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	$CenterContainer/SettingsMenu/sfxvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	$CenterContainer/MainButtons/Play.grab_focus()
 
+#starts tutorial
 func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file("res://Levels/cut_scene.tscn")
 	# Ignore presses once the tutorial has started
 	if state != TITLE_SCREEN_STATE.MAIN_SCREEN:
 		return
@@ -21,6 +23,7 @@ func _on_play_pressed() -> void:
 	$CenterContainer/MainButtons/Play.release_focus()
 
 
+#other buttons
 func _on_settings_pressed() -> void:
 	$CenterContainer/MainButtons.visible = false
 	$CenterContainer/SettingsMenu.visible = true
@@ -34,7 +37,6 @@ func _on_credits_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
 
 func _on_back_pressed() -> void:
 	$CenterContainer/MainButtons.visible = true
@@ -60,6 +62,7 @@ func get_input2():
 	if Input.is_anything_pressed() and $Tutorial2/ImageTut2.visible == true:
 			get_tree().change_scene_to_file("res://Levels/root_node.tscn")
 
+#stupid sound stuff
 func _on_mainvolslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"),value)
 

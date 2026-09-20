@@ -163,7 +163,7 @@ func staggerVoiceLines():
 func play_Person_VoiceLine():
 	
 	#pick random sound 
-	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random(),-4,0.25)
+	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random(),-11,0.25)
 	
 	#create random interval
 	var randomInt = randf_range(minInt, maxInt)
@@ -179,7 +179,7 @@ func play_Deer_VoiceLine():
 	#pick random sound 
 	var random_number = randf_range(0,100)
 	if random_number < 98:
-		Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random(),2.5)
+		Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random(),-2)
 	else:
 		Sfx.play_sfx(Sfx.SKETTY)
 	
