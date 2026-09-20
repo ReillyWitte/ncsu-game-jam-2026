@@ -1,7 +1,9 @@
 extends CanvasLayer
 
-@onready var score: Label = $Score
-@onready var dead_num: Label = $DeadNum
+
+@onready var dead_num: Label = $NewsPaper/DeadNum
+@onready var score: Label = $NewsPaper/Score
+
 @onready var color_rect: ColorRect = $ColorRect
 
 
