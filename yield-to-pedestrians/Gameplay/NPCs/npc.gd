@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 enum NPC_STATE {IDLE, WALK}
 enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
+var MAN_NPC_WALK_TYPES: Array[String] = ["walk", "angel_walk", "child_walk", "clown_walk", "frank_walk", "man2_walk", "vampire_walk"]
+var MAN_NPC_IDLE_TYPES: Array[String] = ["idle", "angel_idle", "child_idle", "clown_idle", "frank_idle", "man2_walk", "vampire_walk"] 
 
 const BLOOD_SCENE = preload("res://Gameplay/NPCs/blood.tscn")
 const COMBO_LABEL_SCENE = preload("res://Menu and UI/combo_label.tscn")
@@ -87,8 +89,9 @@ func get_random_npc() -> int:
 	var random_value = randf_range(0,100)
 	
 	if random_value <= 90:
-		walk_animation = "walk"
-		idle_animation = "idle"
+		var animation_number = randi_range(0, MAN_NPC_WALK_TYPES.size() - 1)
+		walk_animation = MAN_NPC_WALK_TYPES[animation_number]
+		idle_animation = MAN_NPC_IDLE_TYPES[animation_number]
 		physical_collision_shape.shape.size = Vector2(20,27)
 		collision_shape.shape.size = Vector2(20,27)
 		npc_point_value = 100
