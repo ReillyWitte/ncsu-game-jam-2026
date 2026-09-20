@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgkiy55rld7yb"
+path="res://.godot/imported/getAway.mp3-b737d029ea90355b62ec60c2908cba0b.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/People/getAway.mp3"
+dest_files=["res://.godot/imported/getAway.mp3-b737d029ea90355b62ec60c2908cba0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

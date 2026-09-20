@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmqxck5rhnio4"
+path="res://.godot/imported/OpenSeason.mp3-c2554dfa1d199b2a26b868b4485a4819.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/Deer/OpenSeason.mp3"
+dest_files=["res://.godot/imported/OpenSeason.mp3-c2554dfa1d199b2a26b868b4485a4819.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -74,6 +74,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		add_sibling(new_blood)
 		var tile_map: Node = get_parent().get_node("TileMap")
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
+		if decide_if_scream(npc_point_value):
+			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), 0, .25)
 		queue_free()
 		
 func get_random_npc() -> int:
@@ -109,3 +111,12 @@ func get_random_npc() -> int:
 		return NPC_TYPE.DEER
 	else:
 		return 0
+
+func decide_if_scream(points: int) -> bool:
+	if points <= 0:
+		return false
+	else:
+		if randf_range(0,100) <= 25:
+			return true
+		else:
+			return false

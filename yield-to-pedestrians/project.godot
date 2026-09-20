@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 Global="*uid://b5mavpfigu2ud"
+Sfx="*uid://gf7tnoxes5l4"
 
 [display]
 
