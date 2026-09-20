@@ -28,7 +28,7 @@ script = ExtResource("1_frj5v")
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame_progress = 0.6031651
+frame_progress = 0.76413405
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1087301584]
 offset_left = 976.0
