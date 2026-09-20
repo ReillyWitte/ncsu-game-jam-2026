@@ -143,7 +143,7 @@ text = "back"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1307285006]
 stream = ExtResource("5_1lkgl")
-volume_db = 1.0
+volume_db = 4.0
 autoplay = true
 bus = &"Music"
 

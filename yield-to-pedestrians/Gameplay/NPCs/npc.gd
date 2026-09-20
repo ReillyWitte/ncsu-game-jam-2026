@@ -77,8 +77,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var tile_map: Node = get_parent().get_node("TileMap")
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
 		if decide_if_scream(npc_point_value):
-			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -15, .25)
-		Sfx.play_sfx(Sfx.SPLAT, -10, .1)
+			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -18, .25)
+		Sfx.play_sfx(Sfx.SPLAT, -12, .1)
 		if Global.last_multiplier > 1:
 			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
 			add_sibling(new_combo_label)
@@ -123,7 +123,7 @@ func get_random_npc() -> int:
 
 func decide_if_scream(points: int) -> bool:
 	if points <= 0:
-		Sfx.play_sfx(Sfx.MISTAKE,0)
+		Sfx.play_sfx(Sfx.MISTAKE,-5)
 		for node in get_tree().get_nodes_in_group("combo_popup"):
 			if node != self:
 				node.queue_free()
