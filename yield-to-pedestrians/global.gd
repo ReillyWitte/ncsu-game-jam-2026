@@ -19,8 +19,8 @@ var numNitrous: int = 0
 
 var player_position: Vector2
 
-const fullGasLevel: int = 100
-var currentGasLevel: int = 100
+const fullGasLevel: float = 100
+var currentGasLevel: float = 100
 
 func updatePlayerScore(npc_point_value:int):
 	var kill_time = Time.get_ticks_msec()

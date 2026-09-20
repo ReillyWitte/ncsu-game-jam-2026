@@ -57,6 +57,7 @@ theme_override_font_sizes/font_size = 40
 text = "10000"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=680850996]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1025.0
 offset_right = 1925.0
 offset_bottom = 1080.0
