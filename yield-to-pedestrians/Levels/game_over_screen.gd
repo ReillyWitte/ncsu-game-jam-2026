@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-
+@onready var score: Label = $Score
+@onready var dead_num: Label = $DeadNum
 
 
 func _ready():
@@ -8,8 +9,14 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if Global.currentGasLevel <= 0:
+		
+		
+		dead_num.text =str(Global.kill_count) 
+		score.text = str(Global.player_score)
+		
 		get_tree().paused = true
 		self.show()
+
 
 
 func _on_retry_pressed() -> void:

@@ -79,7 +79,7 @@ texture = ExtResource("4_wfnr8")
 [node name="Deer Illumination" type="PointLight2D" parent="." unique_id=1841930822]
 position = Vector2(-36, 0)
 rotation = 1.5707964
-scale = Vector2(0.03, 0.11)
+scale = Vector2(-0.015, 0.08)
 color = Color(0.66254205, 0.19731712, 0.21081021, 1)
 energy = 0.5
 texture = ExtResource("3_wa5vi")
@@ -91,7 +91,7 @@ scale = Vector2(0.99999994, 0.99999994)
 emitting = false
 amount = 500
 texture = ExtResource("6_52j28")
-lifetime = 0.09999999999999999
+lifetime = 0.1
 emission_shape = 1
 emission_sphere_radius = 3.0
 gravity = Vector2(0, 0)
