@@ -18,7 +18,6 @@ func _on_play_pressed() -> void:
 	if state != TITLE_SCREEN_STATE.MAIN_SCREEN:
 		return
 	state = TITLE_SCREEN_STATE.TUTORIAL1
-	$Tutorial1/ImageTut1.visible = true
 	# Take focus off the button so accept doesn't press it again
 	$CenterContainer/MainButtons/Play.release_focus()
 

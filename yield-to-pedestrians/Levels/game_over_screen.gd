@@ -61,6 +61,7 @@ func _on_retry_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
+	Global.reset_globals()
 	self.hide()
 	get_tree().change_scene_to_file("res://Levels/title_screen.tscn")
 	AudioServer.set_bus_volume_db(sfx_index,old_audio_db)
