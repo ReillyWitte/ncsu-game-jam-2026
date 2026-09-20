@@ -14,6 +14,7 @@ extends CanvasLayer
 func _ready():
 	self.hide()
 
+
 func game_end() -> void:
 	
 	dead_num.text =str(Global.kill_count) 
@@ -22,6 +23,8 @@ func game_end() -> void:
 	get_tree().paused = true
 	self.show()
 	
+	$CenterContainer/MainButtons/retry.grab_focus()
+
 	var ending_animation_tween = create_tween()
 	# Change background
 	ending_animation_tween.tween_property(color_rect, "color:a", 1, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
