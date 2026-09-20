@@ -53,6 +53,8 @@ var house_nodes: Array[Node2D] = []
 @export_range(0.0, 1.0) var extra_connection_chance: float = 0.30 
 
 @onready var map: TileMap = $TileMap
+# How many cells thick the tree border is
+@export var tree_border_depth: int = 3
 
 var grid: Dictionary = {}
 
@@ -73,7 +75,9 @@ var tile_coords = {
 	12: Vector2i(2, 7),   # South + West corner
 	13: Vector2i(6, 8),   # North + South + West T-junction
 	14: Vector2i(3, 6),   # East + South + West T-junction
-	15: Vector2i(6, 6)    # 4-way intersection
+	15: Vector2i(6, 6),   # 4-way intersection
+	16: Vector2i(14, 2),	# Tree A
+	17: Vector2i(15,2),		# Tree B
 }
 
 func _enter_tree() -> void:
@@ -82,10 +86,13 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	randomize()
 	generate_maze()
+	
 	for i in Global.maxGas:
 		spawn_random_gas_item(GAS_ITEM_SCENE)
 	for j in Global.maxNPC:
 		spawn_random_npc(NPC_SCENE)
+		
+	reduce_max_Gas()
 
 func generate_maze() -> void:
 	map.clear()
@@ -318,3 +325,24 @@ func create_boundaries() -> void:
 		boundary_body.add_child(col)
 
 	add_child(boundary_body)
+
+	# The two tree tiles to choose between (Tree A and Tree B)
+	var source_id = map.tile_set.get_source_id(0)
+	var tree_options: Array[Vector2i] = [tile_coords[16], tile_coords[17]]
+
+	# Walk the area around the grid, including the corners
+	for x in range(-tree_border_depth, grid_width + tree_border_depth):
+		for y in range(-tree_border_depth, grid_height + tree_border_depth):
+			var cell: Vector2i = Vector2i(x, y)
+			# Cells inside the grid belong to the maze, so skip them
+			if is_in_bounds(cell):
+				continue
+			# Randomly pick one of the two trees for this border cell
+			map.set_cell(0, cell, source_id, tree_options.pick_random())
+
+func reduce_max_Gas():
+	await get_tree().create_timer(1.0).timeout
+	if Global.maxGas > Global.minGas:
+		Global.maxGas = Global.maxGas - 1 
+		print("maxgas:" + str(Global.maxGas))
+	reduce_max_Gas()

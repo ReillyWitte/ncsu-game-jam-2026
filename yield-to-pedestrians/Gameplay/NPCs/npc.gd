@@ -4,6 +4,7 @@ enum NPC_STATE {IDLE, WALK}
 enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
 
 const BLOOD_SCENE = preload("res://Gameplay/NPCs/blood.tscn")
+const COMBO_LABEL_SCENE = preload("res://Menu and UI/combo_label.tscn")
 
 @export var move_speed : float = 60
 @export var idle_time : float = randf_range(0.5, 3)
@@ -60,7 +61,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("player"):
 		#print("Gas collected")
 		Global.updatePlayerScore(npc_point_value)
-		Global.kill_count = Global.kill_count + 1
+		if npc_point_value > 0:
+			Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
 		var new_blood: Node2D = BLOOD_SCENE.instantiate()
@@ -73,6 +75,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		add_sibling(new_blood)
 		var tile_map: Node = get_parent().get_node("TileMap")
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
+		if decide_if_scream(npc_point_value):
+			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), 0, .25)
+		Sfx.play_sfx(Sfx.SPLAT, 0, .1)
+		if Global.last_multiplier > 1:
+			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
+			add_sibling(new_combo_label)
 		queue_free()
 		
 func get_random_npc() -> int:
@@ -108,3 +116,12 @@ func get_random_npc() -> int:
 		return NPC_TYPE.DEER
 	else:
 		return 0
+
+func decide_if_scream(points: int) -> bool:
+	if points <= 0:
+		return false
+	else:
+		if randf_range(0,100) <= 15:
+			return true
+		else:
+			return false

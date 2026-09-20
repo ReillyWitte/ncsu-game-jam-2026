@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2oai3uhljqcc"
+path="res://.godot/imported/IHaveAFamily.mp3-39b557eb90b00e65686e47e6817cd01b.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/People/IHaveAFamily.mp3"
+dest_files=["res://.godot/imported/IHaveAFamily.mp3-39b557eb90b00e65686e47e6817cd01b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

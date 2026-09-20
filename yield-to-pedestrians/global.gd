@@ -10,6 +10,7 @@ const combo_increment = 0.5
 const combo_time_interval = 2000
 
 var maxGas: int = 15
+var minGas: int = 3
 var numGas: int = 0
 var maxNPC: int = 480
 var numNPC: int = 0

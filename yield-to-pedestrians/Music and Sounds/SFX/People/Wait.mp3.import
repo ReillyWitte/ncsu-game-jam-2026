@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnxlmo61skbeg"
+path="res://.godot/imported/Wait.mp3-ebd7b6689bc5ec3633c224dfc436e532.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/People/Wait.mp3"
+dest_files=["res://.godot/imported/Wait.mp3-ebd7b6689bc5ec3633c224dfc436e532.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

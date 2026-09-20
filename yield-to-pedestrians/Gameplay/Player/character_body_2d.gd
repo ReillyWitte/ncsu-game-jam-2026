@@ -11,6 +11,9 @@ var old_passed_time = Time.get_ticks_msec()
 var nitro_grab_time = 0
 
 signal game_end
+var minInt: float = 7.5
+var maxInt: float = 15.0
+
 
 # Movement constants
 @export var rotation_speed := 3.75
@@ -53,7 +56,8 @@ var maze: Node = null
 
 func _ready() -> void:
 	maze = get_tree().get_first_node_in_group("maze")
-	
+	play_Deer_VoiceLine()
+	staggerVoiceLines()
 
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
@@ -150,3 +154,36 @@ func _physics_process(delta):
 
 func emit_game_end():
 	emit_signal("game_end")
+	
+
+func staggerVoiceLines():
+	await get_tree().create_timer(8.0).timeout
+	play_Person_VoiceLine()
+
+
+func play_Person_VoiceLine():
+	
+	#pick random sound 
+	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random())
+	
+	#create random interval
+	var randomInt = randf_range(minInt, maxInt)
+	#apply
+	await get_tree().create_timer(randomInt).timeout
+	
+	# resart
+	play_Person_VoiceLine()
+
+
+func play_Deer_VoiceLine():
+	
+	#pick random sound 
+	Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random())
+	
+	#create random interval
+	var randomInt = randf_range(minInt, maxInt)
+	#apply
+	await get_tree().create_timer(randomInt).timeout
+	
+	# resart
+	play_Deer_VoiceLine()

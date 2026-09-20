@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcxy3tuwag8gi"
+path="res://.godot/imported/Oof.mp3-ec1325a63701e8245ff0c128fdb1504b.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/Screams/Oof.mp3"
+dest_files=["res://.godot/imported/Oof.mp3-ec1325a63701e8245ff0c128fdb1504b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
