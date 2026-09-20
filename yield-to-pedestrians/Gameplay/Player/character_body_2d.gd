@@ -60,7 +60,6 @@ var maze: Node = null
 
 func _ready() -> void:
 	maze = get_tree().get_first_node_in_group("maze")
-	play_Deer_VoiceLine()
 	staggerVoiceLines()
 
 func get_input():
@@ -156,6 +155,8 @@ func emit_game_end():
 	
 
 func staggerVoiceLines():
+	await get_tree().create_timer(8.0).timeout
+	play_Deer_VoiceLine()
 	await get_tree().create_timer(8.0).timeout
 	play_Person_VoiceLine()
 

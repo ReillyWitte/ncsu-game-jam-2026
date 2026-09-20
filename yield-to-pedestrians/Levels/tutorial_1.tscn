@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://2l2l8g2sxf5w"]
+
+[ext_resource type="Script" uid="uid://cn8psu2nww1kc" path="res://Levels/tutorial_1.gd" id="1_i5ltd"]
+[ext_resource type="Texture2D" uid="uid://bo5csiiiduex2" path="res://Assets/howtoplay_screen1.png" id="2_qe76l"]
+
+[node name="Tutorial1" type="Node2D" unique_id=1020257046]
+script = ExtResource("1_i5ltd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=927968209]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_qe76l")
