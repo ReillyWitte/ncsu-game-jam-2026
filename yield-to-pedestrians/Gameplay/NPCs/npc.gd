@@ -76,6 +76,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
 		if decide_if_scream(npc_point_value):
 			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), 0, .25)
+		Sfx.play_sfx(Sfx.SPLAT, 0, .1)
 		queue_free()
 		
 func get_random_npc() -> int:
@@ -116,7 +117,7 @@ func decide_if_scream(points: int) -> bool:
 	if points <= 0:
 		return false
 	else:
-		if randf_range(0,100) <= 25:
+		if randf_range(0,100) <= 15:
 			return true
 		else:
 			return false

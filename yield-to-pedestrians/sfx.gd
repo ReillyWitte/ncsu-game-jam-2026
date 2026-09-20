@@ -16,6 +16,8 @@ var SFX_SCREAMS: Array[Resource] = [
 	preload("res://Music and Sounds/SFX/Screams/Scream10.mp3")
 ]
 
+var SPLAT = preload("res://Music and Sounds/SFX/universfield-wet-squelch-impact-352302.mp3")
+
 func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0) -> void:
 	# Each call gets its own player so overlapping sounds don't cut each other off
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()
