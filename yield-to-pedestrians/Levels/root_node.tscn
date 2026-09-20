@@ -20,3 +20,5 @@ color = Color(0.77279997, 0.80079997, 0.84, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]
 color = Color(0.11054612, 0.1927129, 0.39576915, 1)
+
+[connection signal="game_end" from="CharacterBody2D" to="GameOverScreen" method="game_end"]

@@ -122,11 +122,6 @@ func _physics_process(delta):
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
 	
-	if Global.currentGasLevel <= 1e-3:
-		speed = clampf(speed-5, 0, 1e6)
-		
-	else:
-		speed = max_speed
 	
 	update_camera(delta)
 	# Temp
