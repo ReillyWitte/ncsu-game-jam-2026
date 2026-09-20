@@ -1,21 +1,25 @@
 extends Node2D
 
+# state machine
 enum TITLE_SCREEN_STATE {MAIN_SCREEN, TUTORIAL1, TUTORIAL2}
 var state = TITLE_SCREEN_STATE.MAIN_SCREEN
 
 func _ready():
+	# for tutorial
 	$Tutorial1/ImageTut1.visible = false
 	$Tutorial2/ImageTut2.visible = false
+	#audio
 	$CenterContainer/SettingsMenu/mainvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	$CenterContainer/SettingsMenu/musicslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	$CenterContainer/SettingsMenu/sfxvolslider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	$CenterContainer/MainButtons/Play.grab_focus()
 
+#starts tutorial
 func _on_play_pressed() -> void:
 	state = TITLE_SCREEN_STATE.TUTORIAL1
 	$Tutorial1/ImageTut1.visible = true
 
-
+#other buttons
 func _on_settings_pressed() -> void:
 	$CenterContainer/MainButtons.visible = false
 	$CenterContainer/SettingsMenu.visible = true
@@ -30,17 +34,16 @@ func _on_credits_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_back_pressed() -> void:
 	$CenterContainer/MainButtons.visible = true
 	$CenterContainer/SettingsMenu.visible = false
 	$CenterContainer/CreditsMenu.visible = false
 	$CenterContainer/MainButtons/Play.grab_focus()
 
-func _process(delta: float) -> void:
-	get_input1()
 
-func get_input1():
+
+# click through toutorial
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click") and state == TITLE_SCREEN_STATE.TUTORIAL1:
 			$Tutorial1/ImageTut1.visible = false
 			$Tutorial2/ImageTut2.visible = true
@@ -48,12 +51,12 @@ func get_input1():
 	elif Input.is_action_just_pressed("click") and state == TITLE_SCREEN_STATE.TUTORIAL2:
 		get_tree().change_scene_to_file("res://Levels/root_node.tscn")
 
-
-
 func get_input2():
 	if Input.is_anything_pressed() and $Tutorial2/ImageTut2.visible == true:
 			get_tree().change_scene_to_file("res://Levels/root_node.tscn")
 
+
+#stupid sound stuff
 func _on_mainvolslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"),value)
 
