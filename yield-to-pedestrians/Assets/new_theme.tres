@@ -105,3 +105,4 @@ OptionButton/colors/font_color = Color(0.8745098, 0.22352941, 0.18431373, 1)
 OptionButton/font_sizes/font_size = 75
 OptionButton/fonts/font = ExtResource("1_sdao3")
 PopupMenu/fonts/font = ExtResource("1_sdao3")
+RichTextLabel/colors/font_outline_color = Color(0.20784314, 0.101960786, 0.078431375, 1)

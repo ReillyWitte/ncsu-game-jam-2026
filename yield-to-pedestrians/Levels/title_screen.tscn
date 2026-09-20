@@ -8,19 +8,18 @@
 [node name="TitleScreen" type="Node2D" unique_id=623789392]
 script = ExtResource("1_frj5v")
 
-[node name="Title" type="Label" parent="." unique_id=894471228]
-custom_minimum_size = Vector2(970, 300)
-offset_left = 970.0
-offset_top = 100.0
-offset_right = 1940.0
-offset_bottom = 513.0
-theme_override_colors/font_color = Color(1.5093833, 0, 0.08125132, 1)
-theme_override_fonts/font = ExtResource("2_vn2h1")
-theme_override_font_sizes/font_size = 140
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1087301584]
+offset_left = 976.0
+offset_top = 178.0
+offset_right = 1920.0
+offset_bottom = 482.0
+theme = ExtResource("3_17dc4")
+theme_override_colors/default_color = Color(1, 0.1254902, 0.09411765, 1)
+theme_override_fonts/normal_font = ExtResource("2_vn2h1")
+theme_override_font_sizes/normal_font_size = 140
+bbcode_enabled = true
 text = "Yield to PeDEERstrians"
 horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=254337971]
 z_index = -4096
