@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfkus0xiy24gw" path="res://Assets/newspaper.png" id="1_l644k"]
 [ext_resource type="FontFile" uid="uid://ky6i0qbjdibg" path="res://Menu and UI/Fonts/Pixelta.ttf" id="2_dx7gh"]
 [ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="3_dx7gh"]
+[ext_resource type="AudioStream" uid="uid://cyaxoypdbyf62" path="res://Music and Sounds/Music/endscreen_music.mp3" id="5_vs7ps"]
 
 [node name="GameOverScreen" type="CanvasLayer" unique_id=1538259228]
 process_mode = 3
@@ -57,6 +58,7 @@ theme_override_font_sizes/font_size = 40
 text = "10000"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=680850996]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1025.0
 offset_right = 1925.0
 offset_bottom = 1080.0
@@ -73,6 +75,10 @@ text = "Play Again!"
 [node name="MainMenu" type="Button" parent="CenterContainer/MainButtons" unique_id=1004402471]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1904323669]
+stream = ExtResource("5_vs7ps")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/MainButtons/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/MainMenu" to="." method="_on_main_menu_pressed"]

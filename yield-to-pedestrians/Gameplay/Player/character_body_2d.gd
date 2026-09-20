@@ -43,6 +43,10 @@ var old_min_speed = min_speed
 @onready var drift_particles: CPUParticles2D = $DriftParticles
 @onready var nitro_particles: CPUParticles2D = $NitroParticles
 
+# main music
+@onready var intro: AudioStreamPlayer = $Intro
+@onready var loop: AudioStreamPlayer = $Loop
+
 # Nitro
 @onready var nitro_timer: Timer = $"Nitro Timer"
 
@@ -127,11 +131,11 @@ func _physics_process(delta):
 	# Temp
 	if maze != null:
 		#print("On grass: ", maze.is_grass_at(global_position))
-		if maze.is_grass_at(global_position) == true:
+		if Global.currentGasLevel <= 1e-3:
+			speed = clampf(speed - grass_decel*0.1,0,max_speed)
+		elif maze.is_grass_at(global_position) == true:
 			if speed > min_speed:
 				speed = speed - grass_decel
-		elif Global.currentGasLevel <= 1e-3:
-			speed = clampf(speed - grass_decel*0.1,0,max_speed)
 		else:
 			if speed < max_speed:
 				speed = speed + grass_decel
@@ -159,7 +163,7 @@ func staggerVoiceLines():
 func play_Person_VoiceLine():
 	
 	#pick random sound 
-	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random())
+	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random(),0,0.25)
 	
 	#create random interval
 	var randomInt = randf_range(minInt, maxInt)
