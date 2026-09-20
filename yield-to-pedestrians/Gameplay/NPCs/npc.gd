@@ -60,7 +60,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("player"):
 		#print("Gas collected")
 		Global.updatePlayerScore(npc_point_value)
-		Global.kill_count = Global.kill_count + 1
+		if npc_point_value > 0:
+			Global.kill_count = Global.kill_count + 1
 		print("Splat")
 		print("Your score: ", Global.player_score)
 		var new_blood: Node2D = BLOOD_SCENE.instantiate()
