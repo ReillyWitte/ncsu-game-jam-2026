@@ -100,4 +100,8 @@ gravity = Vector2(0, 0)
 wait_time = 3.0
 one_shot = true
 
+[node name="Game End Timer" type="Timer" parent="." unique_id=226602075]
+one_shot = true
+
 [connection signal="timeout" from="Nitro Timer" to="." method="end_speed_boost"]
+[connection signal="timeout" from="Game End Timer" to="." method="emit_game_end"]

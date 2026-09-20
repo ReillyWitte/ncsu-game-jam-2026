@@ -10,6 +10,7 @@ const DEER_RTURN: Texture2D = preload("res://Assets/deer_rturn.png")
 var old_passed_time = Time.get_ticks_msec()
 var nitro_grab_time = 0
 
+signal game_end
 var minInt: float = 7.5
 var maxInt: float = 15.0
 
@@ -44,6 +45,10 @@ var old_min_speed = min_speed
 
 # Nitro
 @onready var nitro_timer: Timer = $"Nitro Timer"
+
+# Game end timer
+@onready var game_end_timer: Timer = $"Game End Timer"
+
 
 var rotation_direction = 0
 
@@ -116,6 +121,13 @@ func _physics_process(delta):
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
+	
+	if Global.currentGasLevel <= 1e-3:
+		speed = clampf(speed-5, 0, 1e6)
+		
+	else:
+		speed = max_speed
+	
 	update_camera(delta)
 	# Temp
 	if maze != null:
@@ -123,16 +135,25 @@ func _physics_process(delta):
 		if maze.is_grass_at(global_position) == true:
 			if speed > min_speed:
 				speed = speed - grass_decel
+		elif Global.currentGasLevel <= 1e-3:
+			speed = clampf(speed - grass_decel*0.1,0,max_speed)
 		else:
 			if speed < max_speed:
 				speed = speed + grass_decel
 	var passed_time = Time.get_ticks_msec()
 	if passed_time >= old_passed_time + fuel_loss_time:
-		Global.currentGasLevel = Global.currentGasLevel - 1
+		Global.currentGasLevel = clampf(Global.currentGasLevel - 1, 0, 100)
 		old_passed_time = passed_time
 	
-	
+	if Global.currentGasLevel <= 1e-3 and speed <= 1e-3:
+		# Wait slightly after running out of gas before ending the game
+		if game_end_timer.is_stopped():
+			game_end_timer.start()
 	Global.player_position = global_position
+
+
+func emit_game_end():
+	emit_signal("game_end")
 	
 
 func staggerVoiceLines():
