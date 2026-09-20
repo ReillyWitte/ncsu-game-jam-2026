@@ -78,6 +78,7 @@ text = "Main Menu"
 
 [node name="end_screen" type="AudioStreamPlayer2D" parent="." unique_id=1904323669]
 stream = ExtResource("5_vs7ps")
+volume_db = -63.0
 autoplay = true
 bus = &"Music"
 

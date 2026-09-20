@@ -27,7 +27,11 @@ func game_end() -> void:
 	
 	$CenterContainer/MainButtons/retry.grab_focus()
 	
+	end_music.position = get_viewport().get_visible_rect().position
 	end_music.play()
+	
+	var music_tween = create_tween()
+	music_tween.tween_property(end_music,"volume_db",0,1)
 	
 	var ending_animation_tween = create_tween()
 	# Change background
