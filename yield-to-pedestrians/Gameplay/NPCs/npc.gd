@@ -77,7 +77,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var tile_map: Node = get_parent().get_node("TileMap")
 		get_parent().move_child(new_blood, tile_map.get_index() + 1)
 		if decide_if_scream(npc_point_value):
-			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -12, .25)
+			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), -15, .25)
 		Sfx.play_sfx(Sfx.SPLAT, -10, .1)
 		if Global.last_multiplier > 1:
 			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
