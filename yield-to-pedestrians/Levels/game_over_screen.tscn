@@ -79,6 +79,7 @@ text = "Main Menu"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1904323669]
 stream = ExtResource("5_vs7ps")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/MainButtons/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/MainMenu" to="." method="_on_main_menu_pressed"]

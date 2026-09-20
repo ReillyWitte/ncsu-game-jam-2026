@@ -11,10 +11,16 @@ extends CanvasLayer
 @onready var old_audio_db: float
 @onready var sfx_index: float
 
+
+
+
+
 func _ready():
 	self.hide()
 
 func game_end() -> void:
+	
+	%gameplayMusic.stop()
 	
 	dead_num.text =str(Global.kill_count) 
 	score.text = str(Global.player_score)
