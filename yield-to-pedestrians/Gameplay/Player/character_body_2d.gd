@@ -43,6 +43,10 @@ var old_min_speed = min_speed
 @onready var drift_particles: CPUParticles2D = $DriftParticles
 @onready var nitro_particles: CPUParticles2D = $NitroParticles
 
+# main music
+@onready var intro: AudioStreamPlayer = $Intro
+@onready var loop: AudioStreamPlayer = $Loop
+
 # Nitro
 @onready var nitro_timer: Timer = $"Nitro Timer"
 
@@ -159,7 +163,7 @@ func staggerVoiceLines():
 func play_Person_VoiceLine():
 	
 	#pick random sound 
-	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random())
+	Sfx.play_sfx(Sfx.SFX_Person_VoiceLines.pick_random(),0,0.25)
 	
 	#create random interval
 	var randomInt = randf_range(minInt, maxInt)
@@ -173,7 +177,11 @@ func play_Person_VoiceLine():
 func play_Deer_VoiceLine():
 	
 	#pick random sound 
-	Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random())
+	var random_number = randf_range(0,100)
+	if random_number < 99.9:
+		Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random())
+	else:
+		Sfx.play_sfx(Sfx.SKETTY)
 	
 	#create random interval
 	var randomInt = randf_range(minInt, maxInt)
