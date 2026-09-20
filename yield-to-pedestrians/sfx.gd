@@ -42,6 +42,11 @@ var SFX_Person_VoiceLines: Array[Resource] = [
 ]
 var SPLAT = preload("res://Music and Sounds/SFX/universfield-wet-squelch-impact-352302.mp3")
 
+var MenuMusic = preload("res://Music and Sounds/Music/main_menu_music.mp3")
+var gameMusicIntro = preload("res://Music and Sounds/Music/intro_gameplay_song.mp3")
+var gameMusicLoop = preload("res://Music and Sounds/Music/gameplay_loop_music.mp3")
+var endMusic = preload("res://Music and Sounds/Music/endscreen_music.mp3")
+
 func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0) -> void:
 	# Each call gets its own player so overlapping sounds don't cut each other off
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -58,13 +63,21 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_variation: floa
 	player.play()
 
 
-func play_Music(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0) -> void:
+func play_Music(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0,loop = false) -> void:
 	# Each call gets its own player so overlapping sounds don't cut each other off
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()
 	player.stream = stream
 	player.volume_db = volume_db
 	# A little random pitch keeps repeated sounds from feeling robotic
 	player.pitch_scale = randf_range(1.0 - pitch_variation, 1.0 + pitch_variation)
+	# Enable looping if requested
+	if loop:
+		var looped_stream := stream.duplicate()
+		if looped_stream is AudioStreamWAV:
+			looped_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		elif looped_stream is AudioStreamOggVorbis:
+			looped_stream.loop = true
+		player.stream = looped_stream
 	# Send it to the SFX bus if it exists, otherwise fall back to Master
 	if AudioServer.get_bus_index("Music") != -1:
 		player.bus = "Music"
