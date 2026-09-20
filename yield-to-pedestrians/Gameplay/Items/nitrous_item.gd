@@ -15,5 +15,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Global.numNitrous = Global.numNitrous - 1
 		#print(Global.numGas, " gas left")
 		body.speed_boost()
-		Sfx.play_sfx(Sfx.TURBO, 4)
+		Sfx.play_sfx(Sfx.TURBO)
 		queue_free()

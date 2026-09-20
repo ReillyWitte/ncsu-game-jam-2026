@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw4ouue8v8yqg"
+path="res://.godot/imported/spinopel-indian-scout-motorcycle-559425_HPMZDp4X.mp3-b8b7df982e105978fb72b4423c71c738.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/spinopel-indian-scout-motorcycle-559425_HPMZDp4X.mp3"
+dest_files=["res://.godot/imported/spinopel-indian-scout-motorcycle-559425_HPMZDp4X.mp3-b8b7df982e105978fb72b4423c71c738.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
