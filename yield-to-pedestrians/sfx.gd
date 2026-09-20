@@ -42,6 +42,8 @@ var SFX_Person_VoiceLines: Array[Resource] = [
 ]
 var SPLAT = preload("res://Music and Sounds/SFX/universfield-wet-squelch-impact-352302.mp3")
 var MISTAKE = preload("res://Music and Sounds/SFX/lesiakower-error-mistake-sound-effect-incorrect-answer-437420.mp3")
+var GLUG = preload("res://Music and Sounds/SFX/glug-glug-sound-effects_vktLrAhx.mp3")
+var TURBO = preload("res://Music and Sounds/SFX/spinopel-turbo-flutter-336362_NdZIkmcY.mp3")
 
 func play_sfx(stream: AudioStream, volume_db: float = 0.0, pitch_variation: float = 0.0) -> void:
 	# Each call gets its own player so overlapping sounds don't cut each other off
