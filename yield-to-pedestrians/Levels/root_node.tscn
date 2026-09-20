@@ -22,12 +22,12 @@ script = ExtResource("6_25wab")
 [node name="mainLoop" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=972001120]
 unique_name_in_owner = true
 stream = ExtResource("3_25wab")
-volume_db = 2.0
+volume_db = 0.5
 bus = &"Music"
 
 [node name="introPlayer" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=421916130]
 stream = ExtResource("5_6ixnc")
-volume_db = 2.0
+volume_db = 0.5
 bus = &"Music"
 
 [node name="Gas Chime" type="AudioStreamPlayer2D" parent="CharacterBody2D/GameplayMusic" unique_id=562972680]
