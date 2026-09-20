@@ -16,6 +16,9 @@
 
 [node name="HUD_Canvas" parent="." unique_id=247559260 instance=ExtResource("3_pu1r2")]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="HUD_Canvas" unique_id=1216310700]
+color = Color(0.77279997, 0.80079997, 0.84, 1)
+
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=754680504]
 process_mode = 3
 script = ExtResource("4_6ixnc")
@@ -70,12 +73,8 @@ text = "Play Again!"
 layout_mode = 2
 text = "Main Menu"
 
-[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/retry" to="GameOverScreen" method="_on_retry_pressed"]
-[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/MainMenu" to="GameOverScreen" method="_on_main_menu_pressed"]
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]
 color = Color(0.11054612, 0.1927129, 0.39576915, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=983541619]
-position = Vector2(2000, -100)
-energy = 0.1
-shadow_enabled = true
+[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/retry" to="GameOverScreen" method="_on_retry_pressed"]
+[connection signal="pressed" from="GameOverScreen/CenterContainer/MainButtons/MainMenu" to="GameOverScreen" method="_on_main_menu_pressed"]
