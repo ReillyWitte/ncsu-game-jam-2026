@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwmrj7d08krnx"]
 
 [ext_resource type="Texture2D" uid="uid://cfkus0xiy24gw" path="res://Assets/newspaper.png" id="1_l644k"]
-[ext_resource type="FontFile" uid="uid://ky6i0qbjdibg" path="res://Fonts/Pixelta.ttf" id="2_dx7gh"]
+[ext_resource type="FontFile" uid="uid://ky6i0qbjdibg" path="res://Menu and UI/Fonts/Pixelta.ttf" id="2_dx7gh"]
 [ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="3_dx7gh"]
 
 [node name="GameOverScreen" type="Node2D" unique_id=81863306]
