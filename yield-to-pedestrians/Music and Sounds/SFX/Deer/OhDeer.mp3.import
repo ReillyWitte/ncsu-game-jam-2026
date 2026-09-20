@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciqn2lc75fjei"
+path="res://.godot/imported/OhDeer.mp3-cb9fe04582bb560c4f9e4e2b1dc5983a.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/Deer/OhDeer.mp3"
+dest_files=["res://.godot/imported/OhDeer.mp3-cb9fe04582bb560c4f9e4e2b1dc5983a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

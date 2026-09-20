@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ewssgop7pk17"
+path="res://.godot/imported/Ouch.mp3-e60ee449b80c93705dbb008adca40c00.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/Screams/Ouch.mp3"
+dest_files=["res://.godot/imported/Ouch.mp3-e60ee449b80c93705dbb008adca40c00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

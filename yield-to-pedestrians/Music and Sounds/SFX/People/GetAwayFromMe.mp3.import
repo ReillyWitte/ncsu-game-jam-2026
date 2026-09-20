@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cddmgktwxguo2"
+path="res://.godot/imported/GetAwayFromMe.mp3-0e7734fc816b10f0c0afe97a07cbf4b8.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/People/GetAwayFromMe.mp3"
+dest_files=["res://.godot/imported/GetAwayFromMe.mp3-0e7734fc816b10f0c0afe97a07cbf4b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

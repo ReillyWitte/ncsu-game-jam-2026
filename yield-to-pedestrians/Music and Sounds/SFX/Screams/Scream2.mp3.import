@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc1kpjtnmkm4n"
+path="res://.godot/imported/Scream2.mp3-4602ff66255479fe88c0b300d4e7fe20.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SFX/Screams/Scream2.mp3"
+dest_files=["res://.godot/imported/Scream2.mp3-4602ff66255479fe88c0b300d4e7fe20.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
