@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cp5r778evgw3p"]
+
+[ext_resource type="Script" uid="uid://cod362djrraep" path="res://Menu and UI/combo_label.gd" id="1_8ffvl"]
+[ext_resource type="Theme" uid="uid://5vbgkepwkepi" path="res://Assets/new_theme.tres" id="2_8ffvl"]
+[ext_resource type="Texture2D" uid="uid://bo8u48ljuc6lc" path="res://Assets/blood_splatter-10x.png" id="2_lo25c"]
+
+[node name="ComboLabel" type="Node2D" unique_id=117242108]
+script = ExtResource("1_8ffvl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1558288336]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1592915637]
+position = Vector2(1623, 126)
+rotation = 1.5707964
+texture = ExtResource("2_lo25c")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=598070771]
+offset_left = 1435.0
+offset_top = 15.0
+offset_right = 1960.0
+offset_bottom = 258.0
+theme = ExtResource("2_8ffvl")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -28
+theme_override_font_sizes/font_size = 120
+text = "1.5x
+Combo"
+horizontal_alignment = 1

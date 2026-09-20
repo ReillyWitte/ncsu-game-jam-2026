@@ -4,6 +4,7 @@ enum NPC_STATE {IDLE, WALK}
 enum NPC_TYPE {MAN, SNAKE, TURTLE, DEER}
 
 const BLOOD_SCENE = preload("res://Gameplay/NPCs/blood.tscn")
+const COMBO_LABEL_SCENE = preload("res://Menu and UI/combo_label.tscn")
 
 @export var move_speed : float = 60
 @export var idle_time : float = randf_range(0.5, 3)
@@ -77,6 +78,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if decide_if_scream(npc_point_value):
 			Sfx.play_sfx(Sfx.SFX_SCREAMS.pick_random(), 0, .25)
 		Sfx.play_sfx(Sfx.SPLAT, 0, .1)
+		if Global.last_multiplier > 1:
+			var new_combo_label: Node2D = COMBO_LABEL_SCENE.instantiate()
+			add_sibling(new_combo_label)
 		queue_free()
 		
 func get_random_npc() -> int:
