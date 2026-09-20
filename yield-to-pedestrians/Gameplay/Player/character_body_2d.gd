@@ -177,7 +177,11 @@ func play_Person_VoiceLine():
 func play_Deer_VoiceLine():
 	
 	#pick random sound 
-	Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random())
+	var random_number = randf_range(0,100)
+	if random_number < 99.9:
+		Sfx.play_sfx(Sfx.SFX_Deer_VoiceLines.pick_random())
+	else:
+		Sfx.play_sfx(Sfx.SKETTY)
 	
 	#create random interval
 	var randomInt = randf_range(minInt, maxInt)
