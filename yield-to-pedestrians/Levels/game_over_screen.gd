@@ -11,22 +11,22 @@ extends CanvasLayer
 @onready var old_audio_db: float
 @onready var sfx_index: float
 
-
-
+@onready var end_music: AudioStreamPlayer2D = $end_screen
+@onready var gameplay_music: Node2D = $"../CharacterBody2D/GameplayMusic"
 
 
 func _ready():
-	self.hide()
+	end_music.stop()
 
 func game_end() -> void:
-	
-	%gameplayMusic.stop()
-	
 	dead_num.text =str(Global.kill_count) 
 	score.text = str(Global.player_score)
 	
 	get_tree().paused = true
 	self.show()
+	
+	
+	end_music.play()
 	
 	var ending_animation_tween = create_tween()
 	# Change background
@@ -47,6 +47,7 @@ func game_end() -> void:
 	ending_animation_tween.tween_property(center_container,"modulate:a",1,1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	
+
 
 
 func _on_retry_pressed() -> void:

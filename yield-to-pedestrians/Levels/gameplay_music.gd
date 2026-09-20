@@ -1,11 +1,16 @@
-extends AudioStreamPlayer2D
+extends Node2D
 
+@onready var main_loop: AudioStreamPlayer2D = %mainLoop
+@onready var intro_player: AudioStreamPlayer2D = $introPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	intro_player.play()
+
+func play_main() -> void:
+	main_loop.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func fade_out():
+	var tween = create_tween()
+	tween.tween_property(main_loop,"volume_db",-63,1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
