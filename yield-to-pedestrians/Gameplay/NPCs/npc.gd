@@ -119,6 +119,10 @@ func get_random_npc() -> int:
 
 func decide_if_scream(points: int) -> bool:
 	if points <= 0:
+		Sfx.play_sfx(Sfx.MISTAKE,10)
+		for node in get_tree().get_nodes_in_group("combo_popup"):
+			if node != self:
+				node.queue_free()
 		return false
 	else:
 		if randf_range(0,100) <= 15:
