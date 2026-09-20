@@ -12,8 +12,13 @@ func _ready():
 	$CenterContainer/MainButtons/Play.grab_focus()
 
 func _on_play_pressed() -> void:
+	# Ignore presses once the tutorial has started
+	if state != TITLE_SCREEN_STATE.MAIN_SCREEN:
+		return
 	state = TITLE_SCREEN_STATE.TUTORIAL1
 	$Tutorial1/ImageTut1.visible = true
+	# Take focus off the button so accept doesn't press it again
+	$CenterContainer/MainButtons/Play.release_focus()
 
 
 func _on_settings_pressed() -> void:
@@ -41,13 +46,14 @@ func _process(delta: float) -> void:
 	get_input1()
 
 func get_input1():
-	if Input.is_action_just_pressed("click") and state == TITLE_SCREEN_STATE.TUTORIAL1:
-			$Tutorial1/ImageTut1.visible = false
-			$Tutorial2/ImageTut2.visible = true
-			state = TITLE_SCREEN_STATE.TUTORIAL2
-	elif Input.is_action_just_pressed("click") and state == TITLE_SCREEN_STATE.TUTORIAL2:
+	# Advance on mouse click or controller/keyboard accept
+	var advance: bool = Input.is_action_just_pressed("click") or Input.is_action_just_pressed("ui_accept")
+	if advance and state == TITLE_SCREEN_STATE.TUTORIAL1:
+		$Tutorial1/ImageTut1.visible = false
+		$Tutorial2/ImageTut2.visible = true
+		state = TITLE_SCREEN_STATE.TUTORIAL2
+	elif advance and state == TITLE_SCREEN_STATE.TUTORIAL2:
 		get_tree().change_scene_to_file("res://Levels/root_node.tscn")
-
 
 
 func get_input2():
