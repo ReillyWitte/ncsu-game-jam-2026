@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cfq2bb7csp5xs" path="res://Menu and UI/HUD/hud_canvas.gd" id="1_emmti"]
 [ext_resource type="Texture2D" uid="uid://cdnfuoj1h6u3w" path="res://Assets/light_off.png" id="2_8x0ra"]
 [ext_resource type="Texture2D" uid="uid://bnef63kov607v" path="res://Assets/needle.png" id="3_m50hr"]
+[ext_resource type="Texture2D" uid="uid://bvdb1jek80liu" path="res://Assets/light_on.png" id="4_lda13"]
 
 [sub_resource type="SystemFont" id="SystemFont_8x0ra"]
 font_names = PackedStringArray("Impact")
@@ -17,6 +18,39 @@ spacing_glyph = 32
 line_spacing = 5.0
 font_size = 55
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x541c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8x0ra")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8x0ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lda13")
+}],
+"loop": 1,
+"name": &"on",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8x0ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lda13")
+}],
+"loop": 1,
+"name": &"super on",
+"speed": 8.0
+}]
 
 [node name="HUD_Canvas" type="CanvasLayer" unique_id=247559260]
 script = ExtResource("1_emmti")
@@ -35,11 +69,14 @@ text = "000000"
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 2
 
-[node name="Fuel_Light_Sprite" type="Sprite2D" parent="." unique_id=818161067]
-position = Vector2(324, 810)
-texture = ExtResource("2_8x0ra")
+[node name="Fuel Light" type="AnimatedSprite2D" parent="Fuel_Gauge_Sprite" unique_id=851315637]
+sprite_frames = SubResource("SpriteFrames_x541c")
+animation = &"super on"
 
 [node name="Needle_Sprite" type="Sprite2D" parent="." unique_id=1098793109]
 position = Vector2(35, 789)
 texture = ExtResource("3_m50hr")
 offset = Vector2(0, -75)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1836865565]
+color = Color(0.77279997, 0.80079997, 0.84, 1)

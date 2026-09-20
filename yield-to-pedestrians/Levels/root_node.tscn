@@ -13,9 +13,6 @@
 
 [node name="HUD_Canvas" parent="." unique_id=247559260 instance=ExtResource("3_pu1r2")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="HUD_Canvas" unique_id=1216310700]
-color = Color(0.77279997, 0.80079997, 0.84, 1)
-
 [node name="GameOverScreen" parent="." unique_id=1538259228 instance=ExtResource("4_e8hha")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1028692767]

@@ -127,11 +127,11 @@ func _physics_process(delta):
 	# Temp
 	if maze != null:
 		#print("On grass: ", maze.is_grass_at(global_position))
-		if maze.is_grass_at(global_position) == true:
+		if Global.currentGasLevel <= 1e-3:
+			speed = clampf(speed - grass_decel*0.1,0,max_speed)
+		elif maze.is_grass_at(global_position) == true:
 			if speed > min_speed:
 				speed = speed - grass_decel
-		elif Global.currentGasLevel <= 1e-3:
-			speed = clampf(speed - grass_decel*0.1,0,max_speed)
 		else:
 			if speed < max_speed:
 				speed = speed + grass_decel
